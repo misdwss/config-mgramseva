@@ -205,18 +205,6 @@
                 }
               },
               {
-                "variable": "bill_note",
-                "value": {
-                  "path": "PDF_STATIC_LABEL_WS_BILL_NOTE"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "mgramseva-common"
-                }
-              },
-              {
                 "variable": "customer_rating",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_CUSTOMER_RATING"
@@ -463,7 +451,7 @@
                   "path": "$.billDetails"
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod+19800000).getDate())<10?'0'+new Date(x[0].fromPeriod+19800000).getDate():new Date(x[0].fromPeriod+19800000).getDate())+'/'+((new Date(x[0].fromPeriod+19800000).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod+19800000).getMonth()+1):(new Date(x[0].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].fromPeriod+19800000).getFullYear())" 
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod).getDate())<10?'0'+new Date(x[0].fromPeriod).getDate():new Date(x[0].fromPeriod).getDate())+'/'+((new Date(x[0].fromPeriod).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod).getMonth()+1):(new Date(x[0].fromPeriod).getMonth()+1))+'/'+new Date(x[0].fromPeriod).getFullYear())" 
               },
               {
                 "variable": "toPeriod",
@@ -471,7 +459,7 @@
                   "path": "$.billDetails"
                 },
                 "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())" 
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].toPeriod).getDate())<10?('0'+new Date(x[0].toPeriod).getDate()):new Date(x[0].toPeriod).getDate())+'/'+((new Date(x[0].toPeriod).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod).getMonth()+1)):(new Date(x[0].toPeriod).getMonth()+1))+'/'+new Date(x[0].toPeriod).getFullYear())" 
               },
               {
                 "variable": "billIssueDate",
@@ -551,7 +539,7 @@
                      "path":"$.billDetails"                              
                 },
                 "type":"function",
-                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){y.push({'text':'Water Charges '+(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod+19800000).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹ '+x[i].amount});} return y;"  
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){y.push({'text':'Water Charges '+(((new Date(x[i].fromPeriod).getDate())<10?('0'+new Date(x[i].fromPeriod).getDate()):new Date(x[i].fromPeriod).getDate())+'/'+((new Date(x[i].fromPeriod).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod).getMonth()+1)):(new Date(x[i].fromPeriod).getMonth()+1))+'/'+new Date(x[i].fromPeriod).getFullYear())+' - '+(((new Date(x[i].toPeriod).getDate())<10?('0'+new Date(x[i].toPeriod).getDate()):new Date(x[i].toPeriod).getDate())+'/'+((new Date(x[i].toPeriod).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod).getMonth()+1)):(new Date(x[i].toPeriod).getMonth()+1))+'/'+new Date(x[i].toPeriod).getFullYear()),'value':'₹ '+x[i].amount});} return y;"  
               },{
                 "variable": "ws_charge",
                 "value": {
@@ -577,6 +565,7 @@
               "variable":"meterreading",
               "formula":"{{currentmeterreading}}-{{lastmeterreading}}"
             },
+            
             {
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
@@ -586,7 +575,7 @@
           {
             "externalAPI": [
               { 
-                "path": "http://egov-mdms-service.mgramseva:8080/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
@@ -626,7 +615,7 @@
                 ]
             },
               {
-                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
+                "path": "http://ws-services:8080/ws-services/wc/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
@@ -644,7 +633,8 @@
                   },{
                     "variable": "payerName",
                     "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
-                  },{
+                  },
+                   {
                     "variable": "doorHouseNo",
                     "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo",
                     "type":"setEmpty"
@@ -653,14 +643,15 @@
                     "variable": "streetName",
                     "value": "$.WaterConnection[(@.length-1)].additionalDetails.street",
                     "type":"setEmpty"
-                }, {
+                },
+                {
                     "variable": "mohalla",
                     "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
                 }
                 ]
               },
               {
-                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/meterConnection/_search",
+                "path": "http://ws-calculator:8080/ws-calculator/meterConnection/_search",
                 "queryParam": "tenantId=$.tenantId,connectionNos=$.consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
@@ -679,7 +670,7 @@
                 ]
               },
               {
-                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
+                "path": "http://ws-services:8080/ws-services/wc/_getfeedback",
                 "queryParam": "tenantId=$.tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
@@ -701,7 +692,7 @@
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
                 "apiRequest": null,
-                "responseMapping": [ 
+                "responseMapping": [
                   {
                     "variable": "pendingcollection",
                     "value": "$.LastMonthSummary.cumulativePendingCollection"
@@ -719,7 +710,7 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
-                   },
+              },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
                 "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",

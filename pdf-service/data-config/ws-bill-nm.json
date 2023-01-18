@@ -24,6 +24,17 @@
                   "module": "mgramseva-common"
                 }
               },
+		    {
+                "variable": "GPWSC1",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
               {
                 "variable": "connection_id",
                 "value": {

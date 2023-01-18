@@ -682,7 +682,12 @@
                     "value":"$.MdmsRes.tenant.tenants[0].address"
                   },{             
                     "variable":"GPWSC",
-                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName"
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+	            "localisation": {
+                  	"required": true,
+                  	"prefix": null,
+                  	"module": "mgramseva-common"
+                	}
                   },
                   {
                     "variable":"phoneNumber",

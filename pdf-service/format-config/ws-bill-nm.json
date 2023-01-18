@@ -83,6 +83,28 @@
             ],
             [
               {
+                "text": "{{gpwsc_name}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "style": "receipt-table"
+              },
+              {
+                "text": "{{GPWSC1}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "style": "receipt-table-value"
+              }
+            ]
+            [
+              {
                 "text": "{{connection_id}}",
                 "border": [
                   false,

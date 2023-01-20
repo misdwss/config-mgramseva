@@ -492,7 +492,17 @@
                   "module": "mgramseva-common"
                 }
               },
-              
+               {
+                "variable": "GPWSC",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
               {
                 "variable": "totalAmountDue",
                 "value": {
@@ -682,9 +692,6 @@
                   {             
                     "variable":"tenantaddress",
                     "value":"$.MdmsRes.tenant.tenants[0].address"
-                  },{             
-                    "variable":"GPWSC",
-                    "value":"$.MdmsRes.tenant.tenants[0].city.ddrName"
                   },
                   {
                     "variable":"phoneNumber",

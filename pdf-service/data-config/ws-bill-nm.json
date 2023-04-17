@@ -664,7 +664,7 @@
           },
 	 {
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
+            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount2}}"	    
 	},
               
 		    {

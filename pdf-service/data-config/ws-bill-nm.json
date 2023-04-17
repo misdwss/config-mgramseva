@@ -654,11 +654,7 @@
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             },
-	 {
-		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
-	},
-              {
+		    {
             "variable":"advanceAdjustedAmount1",
             "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
@@ -666,6 +662,11 @@
             "variable":"advanceAdjustedAmount2",
             "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountThree}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
           },
+	 {
+		  "variable":"advanceAdjustedAmount",
+            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
+	},
+              
 		    {
             "variable":"ws_charge_amt",
             "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"

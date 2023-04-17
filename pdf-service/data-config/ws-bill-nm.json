@@ -660,7 +660,7 @@
           },
 		     {
             "variable":"advanceAdjustedAmount2",
-            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountThree}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
+            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountFour}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
           },
 	 {
 		  "variable":"advanceAdjustedAmount",

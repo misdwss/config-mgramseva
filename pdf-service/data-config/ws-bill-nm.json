@@ -660,11 +660,11 @@
           },
 		     {
             "variable":"advanceAdjustedAmount2",
-            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountFour}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
+            "formula":"{{advanceAdjustedAmountThreeTax[(@.length-1)].taxAmount}}=={{advanceAdjustedAmountThreeTax[(@.length-1)].collectionAmount}}?0:{{advanceAdjustedAmountThreeTax[(@.length-1)].collectionAmount}}-{{advanceAdjustedAmountThreeTax[(@.length-2)].collectionAmount}}"
           },
 	 {
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount2}}"	    
+            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
 	},
               
 		    {
@@ -822,14 +822,6 @@
                 "variable": "advanceAdjustedAmountTwo",
                 "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
               },
-		{
-                "variable": "advanceAdjustedAmountThree",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[1].collectionAmount"
-              },
-              {
-                "variable": "advanceAdjustedAmountFour",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[0].collectionAmount"
-              },
               {
                 "variable": "totalBillTaxAmount",
                 "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
@@ -851,7 +843,7 @@
               },
 				  {
                 "variable": "advanceAdjustedAmountThreeTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')][(@.length-1)].taxAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')]"
               }
               ]
             },

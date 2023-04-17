@@ -654,9 +654,17 @@
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             },
+	 {
+		  "variable":"advanceAdjustedAmount",
+            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
+	},
               {
-            "variable":"advanceAdjustedAmount",
+            "variable":"advanceAdjustedAmount1",
             "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+          },
+		     {
+            "variable":"advanceAdjustedAmount2",
+            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountThree}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
           },
 		    {
             "variable":"ws_charge_amt",
@@ -813,6 +821,14 @@
                 "variable": "advanceAdjustedAmountTwo",
                 "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
               },
+		{
+                "variable": "advanceAdjustedAmountThree",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].collectionAmount"
+              },
+              {
+                "variable": "advanceAdjustedAmountFour",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-2)].collectionAmount"
+              },
               {
                 "variable": "totalBillTaxAmount",
                 "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
@@ -831,6 +847,10 @@
 		{
                 "variable": "advanceAdjustedAmountOneTax",
                 "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
+              },
+				  {
+                "variable": "advanceAdjustedAmountThreeTax",
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].taxAmount"
               }
               ]
             },

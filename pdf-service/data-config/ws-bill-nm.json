@@ -824,11 +824,11 @@
               },
 		{
                 "variable": "advanceAdjustedAmountThree",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[1].collectionAmount"
               },
               {
                 "variable": "advanceAdjustedAmountFour",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[0].collectionAmount"
               },
               {
                 "variable": "totalBillTaxAmount",
@@ -851,7 +851,7 @@
               },
 				  {
                 "variable": "advanceAdjustedAmountThreeTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].taxAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[0].taxAmount"
               }
               ]
             },

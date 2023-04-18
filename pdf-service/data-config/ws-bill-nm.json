@@ -660,7 +660,7 @@
           },
 	 {
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmountThreeTax}}:{{advanceAdjustedAmount1}}"	    
+            "formula":"{{advanceAdjustedAmountOneTax}}==null?{{advanceAdjustedAmountThreeTax[0].taxAmount}}:{{advanceAdjustedAmount1}}"	    
 	},
               
 		    {
@@ -839,7 +839,7 @@
               },
 				  {
                 "variable": "advanceAdjustedAmountThreeTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD'].taxAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')]"
               }
 				  
               ]

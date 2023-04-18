@@ -654,22 +654,14 @@
               "variable":"address",
               "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
             },
-		    {
-            "variable":"advanceAdjustedAmount1",
-            "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountTwo}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
-          },
-	   {
-            "variable":"advanceAdjustedAmount2",
-            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountFour}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
-          },
 	{
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==0?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
+            "formula":"-{{advanceAdjustedAmountOne}}"	    
 	},
               
 		    {
             "variable":"ws_charge_amt",
-            "formula":"{{ws_charge}}==0.00?-{{advanceAdjustedAmount}}:{{ws_charge}}"
+            "formula":"{{WCharge}}"
           },
 		    {
             "variable":"totalArrear",
@@ -816,19 +808,11 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].collectionAmount"
+                "value": "$AdvanceAdjustedAmount"
               },
-              {
-                "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
-              },
-	 {
-                "variable": "advanceAdjustedAmountThree",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].collectionAmount"
-              },
-              {
-                "variable": "advanceAdjustedAmountFour",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-2)].collectionAmount"
+	{
+                "variable": "WCharge",
+                "value": "$.WaterCharge"
               },
               {
                 "variable": "totalBillTaxAmount",
@@ -844,14 +828,6 @@
 		{
                 "variable": "demandIssuedDate",
                 "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
-              },
-		{
-                "variable": "advanceAdjustedAmountOneTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
-              },
-		{
-                "variable": "advanceAdjustedAmountThreeTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].taxAmount"
               }
 				  
               ]

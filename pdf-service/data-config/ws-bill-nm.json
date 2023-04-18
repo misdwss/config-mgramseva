@@ -836,11 +836,8 @@
 		{
                 "variable": "advanceAdjustedAmountOneTax",
                 "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-1)].taxAmount"
-              },
-				  {
-                "variable": "advanceAdjustedAmountThreeTax",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[?(@.taxHeadMasterCode == 'WS_ADVANCE_CARRYFORWARD')]"
               }
+				  
               ]
             },
 		    {

@@ -658,9 +658,13 @@
             "variable":"advanceAdjustedAmount1",
             "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
+	   {
+            "variable":"advanceAdjustedAmount2",
+            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountThree}}?0:{{advanceAdjustedAmountThree}}-{{advanceAdjustedAmountFour}}"
+          },
 	{
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}==0?{{advanceAdjustedAmountThreeTax}}:{{advanceAdjustedAmount1}}"	    
+            "formula":"{{advanceAdjustedAmountOneTax}}==0?{{advanceAdjustedAmount2}}:{{advanceAdjustedAmount1}}"	    
 	},
               
 		    {

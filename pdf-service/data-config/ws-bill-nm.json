@@ -808,7 +808,7 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$AdvanceAdjustedAmount"
+                "value": "$.AdvanceAdjustedAmount"
               },
 	{
                 "variable": "WCharge",

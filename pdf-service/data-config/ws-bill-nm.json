@@ -658,13 +658,9 @@
             "variable":"advanceAdjustedAmount1",
             "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
           },
-	 {
-            "variable":"advanceAdjustedAmount2",
-            "formula":"{{advanceAdjustedAmountThreeTax}}=={{advanceAdjustedAmountThree}}?0:{{advanceAdjustedAmountThreeTax}}-{{advanceAdjustedAmountFourTax}}"
-          },
-	 {
+	{
 		  "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}"	    
+            "formula":"{{advanceAdjustedAmountOneTax}}==0?{{advanceAdjustedAmountThreeTax}}:{{advanceAdjustedAmount1}}"	    
 	},
               
 		    {
@@ -821,14 +817,6 @@
               {
                 "variable": "advanceAdjustedAmountTwo",
                 "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
-              },
-		{
-                "variable": "advanceAdjustedAmountThree",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-1)].collectionAmount"
-              },
-              {
-                "variable": "advanceAdjustedAmountFour",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-arrears')].demandDetails[(@.length-2)].collectionAmount"
               },
               {
                 "variable": "totalBillTaxAmount",

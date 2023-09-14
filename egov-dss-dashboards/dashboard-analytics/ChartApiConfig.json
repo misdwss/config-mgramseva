@@ -1124,7 +1124,7 @@
         "module": "PGR",
         "indexName": "pgr-services",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"module\" : \"businessService.keyword\", \n\"tenantId\" : \"Data.service.tenantId\"}",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.service.tenantId.keyword\":[\"pg.testing\",\"pg\"]}}]}},\"aggs\":{\"Closed With In Sla\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"REJECTED\",\"CLOSEDAFTERRESOLUTION\",\"RESOLVED\"]}},{\"script\":{\"script\":{\"source\":\"doc['Data.service.auditDetails.lastModifiedTime'].value- doc['Data.service.auditDetails.createdTime'].value < params.threshold\",\"lang\":\"painless\",\"params\":{\"threshold\":172800000}}}}]}},\"aggs\":{\"count\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"tenant_count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}},\"Total Applications\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"tenant_count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.service.tenantId.keyword\":[\"pb.testing\",\"pb\"]}}]}},\"aggs\":{\"Closed With In Sla\":{\"filter\":{\"bool\":{\"must\":[{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"REJECTED\",\"CLOSEDAFTERRESOLUTION\",\"RESOLVED\"]}},{\"script\":{\"script\":{\"source\":\"doc['Data.service.auditDetails.lastModifiedTime'].value- doc['Data.service.auditDetails.createdTime'].value < params.threshold\",\"lang\":\"painless\",\"params\":{\"threshold\":172800000}}}}]}},\"aggs\":{\"count\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"tenant_count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}},\"Total Applications\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"tenant_count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}",
         "dateRefField": "Data.@timestamp"
       },
       {
@@ -2397,7 +2397,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \r\n  \"module\" : \"businessService.keyword\", \n\"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Total Application\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}, \"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"Within SLA\",\"from\":0,\"to\":360}]}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Application\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}, \"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"Within SLA\",\"from\":0,\"to\":360}]}}}}}}"
       }
     ],
     "chartType": "metric",
@@ -2729,7 +2729,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
@@ -2769,7 +2769,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2808,7 +2808,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\", \"ulbId\" : \"Data.service.tenantId.keyword\", \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2898,7 +2898,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"departmentId\" : \"Data.department.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\", \"ulbId\" : \"Data.service.tenantId.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2942,7 +2942,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -2984,7 +2984,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Category \":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Category \":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":1000},\"aggs\":{\"withinSLA\":{\"range\":{\"script\":{\"lang\":\"painless\",\"source\":\"doc['Data.slaHours'].value\"},\"ranges\":[{\"key\":\"withinSLA\",\"from\":0,\"to\":360}]}},\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Closed Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Open_Complaints\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Open Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Reopened_Complaints\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Reopened Complaints\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -3029,7 +3029,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed Complaints\":{\"filters\":{\"filters\":{\"CLOSEDAFTERRESOLUTION\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"RESOLVED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}},\"Closed Complaints\":{\"filters\":{\"filters\":{\"CLOSEDAFTERRESOLUTION\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"RESOLVED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}}}}}}}}"
       }
     ],
     "chartType": "metric",
@@ -3060,7 +3060,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}"
       }
     ],
     "chartType": "metric",
@@ -3091,7 +3091,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"CLOSEDAFTERRESOLUTION\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"RESOLVED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"REJECTED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"CLOSEDAFTERRESOLUTION\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"RESOLVED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"REJECTED\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}}}}}}}}}"
       }
     ],
     "chartType": "metric",
@@ -3121,7 +3121,7 @@
         "dateRefField": "Data.@timestamp",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId\"}",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Closed Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Closed\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}},\"Reopened Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Reopened\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}},\"Closed Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Closed\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\",\"REJECTED\",\"RESOLVED\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}},\"Reopened Complaints\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"Reopened\":{\"filter\":{\"terms\":{\"Data.history.action.keyword\":[\"REOPEN\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.tenantId.keyword\"}}}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -3149,7 +3149,7 @@
         "dateRefField": "Data.@timestamp",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Ivr\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"ivr\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"ivr\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Web\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"web\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"web\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Whatsapp\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"whatapp\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"whatsapp\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Mobileapp\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"mobileapp\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"mobile\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Ivr\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"ivr\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"ivr\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Web\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"web\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"web\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Whatsapp\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"whatapp\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"whatsapp\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Mobileapp\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"mobileapp\":{\"filter\":{\"terms\":{\"Data.service.source.keyword\":[\"mobile\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -3177,7 +3177,7 @@
         "dateRefField": "Data.@timestamp",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId\"}",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Open\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"open\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\",\"PENDINGATLME\",\"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Closed\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"closed\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\", \"RESOLVED\", \"REJECTED\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Open\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"open\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\",\"PENDINGATLME\",\"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}},\"Closed\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"closed\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\", \"RESOLVED\", \"REJECTED\"]}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -3203,7 +3203,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By Status\":{\"terms\":{\"field\":\"Data.service.applicationStatus.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By Status\":{\"terms\":{\"field\":\"Data.service.applicationStatus.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3226,7 +3226,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By Channels\":{\"terms\":{\"field\":\"Data.service.source.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By Channels\":{\"terms\":{\"field\":\"Data.service.source.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3249,7 +3249,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By Category\":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By Category\":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3272,7 +3272,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By Tenant\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By Tenant\":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3295,7 +3295,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By District\":{\"terms\":{\"field\":\"Data.tenantData.city.districtName.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By District\":{\"terms\":{\"field\":\"Data.tenantData.city.districtName.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3318,7 +3318,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints By Department\":{\"terms\":{\"field\":\"Data.department.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints By Department\":{\"terms\":{\"field\":\"Data.department.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.@timestamp\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3341,7 +3341,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\",\"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}"
       }
     ],
     "isMdmsEnabled": true,
@@ -3401,7 +3401,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"ULBs \":{\"terms\":{\"field\":\"Data.service.tenantId.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -3460,7 +3460,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Ward \":{\"terms\":{\"field\":\"Data.ward.name.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -3518,7 +3518,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" }",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Department \":{\"terms\":{\"field\":\"Data.department.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGATLME\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -3574,7 +3574,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId.keyword\" , \"departmentId\" : \"Data.department.keyword\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Category \":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"assigned\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applcationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Category \":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":1000},\"aggs\":{\"Closed Complaints\":{\"filters\":{\"filters\":{\"Open\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORASSIGNMENT\"}},\"Reopen\":{\"match\":{\"Data.history.action.keyword\":\"REOPEN\"}},\"Assigned\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"assigned\"}},\"Closed\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"CLOSEDAFTERRESOLUTION\"}},\"Resolved\":{\"match\":{\"Data.service.applcationStatus.keyword\":\"RESOLVED\"}},\"Rejected\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"REJECTED\"}},\"ReassignRequested\":{\"match\":{\"Data.service.applicationStatus.keyword\":\"PENDINGFORREASSIGNMENT\"}}}}}}}}}}}"
       }
     ],
     "filterKeys": [
@@ -3632,7 +3632,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "dateRefField": "Data.@timestamp",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complain Category\":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":6,\"order\":{\"Count\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.serviceCode.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complain Category\":{\"terms\":{\"field\":\"Data.service.serviceCode.keyword\",\"size\":6,\"order\":{\"Count\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.service.serviceCode.keyword\"}}}}}}}}"
       }
     ],
     "chartType": "pie",
@@ -3656,7 +3656,7 @@
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "indexName": "pgr-services",
         "aggrQuery": "{\"aggs\":{\"Complaints Average Turn Around Time (in Days)\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"each_open\":{\"terms\":{\"field\":\"_id\",\"min_doc_count\":0, \"size\":200},\"aggs\":{\"Open_Complaints\":{\"nested\":{\"path\":\"Data.service\"},\"aggs\":{\"aggrFilter\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"PENDINGFORASSIGNMENT\", \"PENDINGATLME\", \"PENDINGFORREASSIGNMENT\"]}},\"aggs\":{\"amount\":{\"sum\":{\"field\":\"Data.history.auditDetails.createdTime\"}}}}}},\"Closed_Complaints\":{\"nested\":{\"path\":\"Data.service\"},\"aggs\":{\"aggrFilter\":{\"filter\":{\"terms\":{\"Data.service.applicationStatus.keyword\":[\"CLOSEDAFTERRESOLUTION\"]}},\"aggs\":{\"amount\":{\"sum\":{\"field\":\"Data.history.auditDetails.createdTime\"}}}}}},\"computedValueATA\":{\"bucket_script\":{\"buckets_path\":{\"max\":\"Closed_Complaints>aggrFilter>amount\",\"min\":\"Open_Complaints>aggrFilter>amount\"},\"script\":{\"source\":\"params.max-params.min\"}}}}}}}}}",
-        "aggrQuerybc": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Complaints Average Turn Around Time (in Days)\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"each_open\":{\"terms\":{\"field\":\"_id\",\"min_doc_count\":0},\"aggs\":{\"Open_Complaints\":{\"min\":{\"field\":\"Data.history.auditDetails.createdTime\"}},\"Closed_Complaints\":{\"max\":{\"field\":\"Data.history.auditDetails.createdTime\"}},\"computedValueATA\":{\"bucket_script\":{\"buckets_path\":{\"max\":\"Closed_Complaints\",\"min\":\"Open_Complaints\"},\"script\":{\"source\":\"if(params.max == null && params.min == null) {0} else {params.max-params.min}\"}}}}}}}}}}}"
+        "aggrQuerybc": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Complaints Average Turn Around Time (in Days)\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"each_open\":{\"terms\":{\"field\":\"_id\",\"min_doc_count\":0},\"aggs\":{\"Open_Complaints\":{\"min\":{\"field\":\"Data.history.auditDetails.createdTime\"}},\"Closed_Complaints\":{\"max\":{\"field\":\"Data.history.auditDetails.createdTime\"}},\"computedValueATA\":{\"bucket_script\":{\"buckets_path\":{\"max\":\"Closed_Complaints\",\"min\":\"Open_Complaints\"},\"script\":{\"source\":\"if(params.max == null && params.min == null) {0} else {params.max-params.min}\"}}}}}}}}}}}"
       }
     ],
     "chartType": "line",
@@ -3690,7 +3690,7 @@
         "dateRefField": "Data.@timestamp",
         "requestQueryMap": "{\"wardId\" : \"Data.ward.name.keyword\", \"tenantId\" : \"Data.service.tenantId\"}",
         "indexName": "pgr-services",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pg.testing\"}}]}},\"aggs\":{\"Citizens\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"Data.service.citizen.uuid.keyword\"}}}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.service.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Citizens\":{\"date_histogram\":{\"field\":\"Data.@timestamp\",\"interval\":\"intervalvalue\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"Data.service.citizen.uuid.keyword\"}}}}}}}}"
       }
     ],
     "chartType": "line",

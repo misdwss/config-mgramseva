@@ -2734,11 +2734,10 @@
     ],
     "isMdmsEnabled": true,
     "filterKeys": [
-      {"key": "tenantId", "column": "DDRs"}
     ],
     "chartType": "xtable",
     "valueType": "number",
-    "drillChart": "xpgrStatusByTenant",
+    "drillChart": "",
     "plotLabel": "DDRs",
     "excludedColumns": ["withinSLA"],
     "computedFields": [
@@ -2934,7 +2933,7 @@
     },
     "_comment": ""
   },
-  "xpgrStatusByDept": {
+  "xpgrStatusByCategoryType": {
     "chartName": "DSS_PGR_STATUS_BY_TENANT",
     "queries": [
       {
@@ -2946,11 +2945,10 @@
       }
     ],
     "filterKeys": [
-      {"key": "departmentId", "column": "Department"}
     ],
     "chartType": "xtable",
     "valueType": "number",
-    "drillChart": "xpgrStatusByCatagory",
+    "drillChart": "",
 
     "documentType": "_doc",
     "action": "",

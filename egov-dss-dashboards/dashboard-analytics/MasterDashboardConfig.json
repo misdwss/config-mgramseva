@@ -1958,13 +1958,13 @@
                   "tabName": "Boundary"
                 },
                 {
-                  "id": "xpgrStatusByDept",
-                  "name": "DSS_PGR_STATUS_BY_DEPARTMENT",
+                  "id": "xpgrStatusByCategoryType",
+                  "name": "DSS_PGR_STATUS_BY_TENANT",
                   "code": "",
                   "chartType": "table",
                   "filter": "",
                   "headers": [],
-                  "tabName": "Department"
+                  "tabName": "Category"
                 }
               ]
             }

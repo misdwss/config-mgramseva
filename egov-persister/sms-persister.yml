@@ -7,15 +7,17 @@ serviceMaps:
       isTransaction: true
       queryMaps:
 
-        - query: INSERT INTO eg_sms( mobile_no, message, category, template_id, createdtime) VALUES (?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_sms( mobile_no, message, category, template_id, tenantId, createdtime) VALUES (?, ?, ?, ?, ?, ?);
           basePath: sms
           jsonMaps:
-            - jsonPath: $.sms.mobileNumber
+            - jsonPath: $.smsSaveRequest.mobileNumber
 
-            - jsonPath: $.sms.message
+            - jsonPath: $.smsSaveRequest.message
 
-            - jsonPath: $.sms.category
+            - jsonPath: $.smsSaveRequest.category
 
-            - jsonPath: $.sms.templateId
+            - jsonPath: $.smsSaveRequest.templateId
 
-            - jsonPath: $.sms.createdtime
+            - jsonPath: $.smsSaveRequest.tenantId
+
+            - jsonPath: $.smsSaveRequest.createdtime

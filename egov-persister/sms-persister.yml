@@ -1,0 +1,21 @@
+serviceMaps:
+  serviceName: egov-notification-sms
+  mappings:
+    - version: 1.0
+      description: Save sms details in tables
+      fromTopic: save-sms-entity-application
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO eg_sms( mobile_no, message, category, template_id, createdtime) VALUES (?, ?, ?, ?, ?);
+          basePath: sms
+          jsonMaps:
+            - jsonPath: $.sms.mobileNumber
+
+            - jsonPath: $.sms.message
+
+            - jsonPath: $.sms.category
+
+            - jsonPath: $.sms.templateId
+
+            - jsonPath: $.sms.createdtime

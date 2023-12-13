@@ -50,7 +50,7 @@ serviceMaps:
 
       - jsonPath: $.Challan.billIssuedDate
 
-      - jsonPath: $.Challan.paidDate
+      - jsonPath: $.Challan.NewpaidDate
 
       - jsonPath: $.Challan.isBillPaid
 

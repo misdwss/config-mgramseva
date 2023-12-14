@@ -731,9 +731,7 @@
                   },
                   {
                     "variable": "previousMonth",
-                    "value": "$.LastMonthSummary.previousMonthYear",
-                    "type":"function",
-                    "format":"arguments[0].split(\" \")[0]",
+                    "formula": "'{{$.LastMonthSummary.previousMonthYear}}'.split(' ')[0]",
                     "localisation":{
                       "required":true,
                       "prefix": null,
@@ -742,9 +740,7 @@
                   },
                   {
                     "variable": "previousMonthYear",
-                    "value": "$.LastMonthSummary.previousMonthYear",
-                    "type":"function",
-                    "format":"arguments[0].split(\" \")[1]"
+                    "formula": "'{{$.LastMonthSummary.previousMonthYear}}'.split(' ')[1]"
                   }
                 ]
                 },

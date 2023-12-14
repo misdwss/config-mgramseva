@@ -730,8 +730,17 @@
                     "value": "$.LastMonthSummary.actualCollection"
                   },
                   {
+                    "variable": "previousMonth",
+                    "value": "$.LastMonthSummary.previousMonthYear.split(\" \")[0]",
+                    "localisation":{
+                      "required":true,
+                      "prefix": null,
+                      "module":"mgramseva-common"
+                      }
+                  },
+                  {
                     "variable": "previousMonthYear",
-                    "value": "$.LastMonthSummary.previousMonthYear"
+                    "value": "$.LastMonthSummary.previousMonthYear.split(\" \")[1]"
                   }
                 ]
                 },

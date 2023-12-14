@@ -558,7 +558,7 @@
                   "body": [
                     [
                       {
-                        "text": "{{month_summary}}   {{previousMonthYear}}",
+                        "text": "{{month_summary}}   {{previousMonth}} {{previousMonthYear}}",
                         "border": [
                           false,
                           false,

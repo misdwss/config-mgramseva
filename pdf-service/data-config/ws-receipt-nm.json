@@ -731,7 +731,7 @@
                   },
                   {
                     "variable": "previousMonth",
-                    "value": "$.LastMonthSummary.previousMonthYear.split(\" \")[0]",
+                    "formula": "$.LastMonthSummary.previousMonthYear.split(\" \")[0]",
                     "localisation":{
                       "required":true,
                       "prefix": null,
@@ -740,7 +740,7 @@
                   },
                   {
                     "variable": "previousMonthYear",
-                    "value": "$.LastMonthSummary.previousMonthYear.split(\" \")[1]"
+                    "formula": "$.LastMonthSummary.previousMonthYear.split(\" \")[1]"
                   }
                 ]
                 },

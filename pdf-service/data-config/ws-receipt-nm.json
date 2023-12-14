@@ -731,9 +731,7 @@
                   },
                   {
                     "variable": "previousMonth",
-                    "value": {
-                        "path":"$.LastMonthSummary.previousMonthYear"                              
-                      },
+                    "value": "$.LastMonthSummary.previousMonthYear",
                     "type":"function",
                     "format":"arguments[0].split(\" \")[0]",
                     "localisation":{
@@ -744,9 +742,7 @@
                   },
                   {
                     "variable": "previousMonthYear",
-                    "value": {
-                        "path":"$.LastMonthSummary.previousMonthYear"                              
-                      },
+                    "value": "$.LastMonthSummary.previousMonthYear",
                     "type":"function",
                     "format":"arguments[0].split(\" \")[1]"
                   }

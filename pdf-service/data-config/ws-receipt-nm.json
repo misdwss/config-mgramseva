@@ -732,7 +732,7 @@
                   {
                     "variable": "previousMonth",
                     "value":"$.LastMonthSummary.previousMonthYear",
-                    "type":"function",
+                    "type":"label",
                     "format": "return arguments[0].split(' ')[0]",
                     "localisation":{
                       "required":true,
@@ -743,7 +743,7 @@
                   {
                     "variable": "previousMonthYear",
                     "value":"$.LastMonthSummary.previousMonthYear",
-                    "type":"function",
+                    "type":"label",
                     "format": "return arguments[0].split(' ')[1]"
                   }
                 ]

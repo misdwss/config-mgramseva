@@ -730,21 +730,8 @@
                     "value": "$.LastMonthSummary.actualCollection"
                   },
                   {
-                    "variable": "previousMonth",
-                    "value":"$.LastMonthSummary.previousMonthYear",
-                    "type":"label",
-                    "format": "return arguments[0].split(' ')[0]",
-                    "localisation":{
-                      "required":true,
-                      "prefix": null,
-                      "module":"mgramseva-common"
-                      }
-                  },
-                  {
                     "variable": "previousMonthYear",
-                    "value":"$.LastMonthSummary.previousMonthYear",
-                    "type":"label",
-                    "format": "return arguments[0].split(' ')[1]"
+                    "value":"$.LastMonthSummary.previousMonthYear"
                   }
                 ]
                 },

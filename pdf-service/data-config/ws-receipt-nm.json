@@ -734,7 +734,8 @@
                     "value":{
                       "path": "$.LastMonthSummary.previousMonthYear"
                     },
-                    "formula": "'{{previousMonth}}'.split(' ')[0]",
+                    "type":"function",
+                    "format": "return arguments[0].split(' ')[0]",
                     "localisation":{
                       "required":true,
                       "prefix": null,
@@ -746,7 +747,8 @@
                     "value":{
                       "path": "$.LastMonthSummary.previousMonthYear"
                     },
-                    "formula": "'{{previousMonth}}'.split(' ')[1]"
+                    "type":"function",
+                    "format": "return arguments[0].split(' ')[1]"
                   }
                 ]
                 },

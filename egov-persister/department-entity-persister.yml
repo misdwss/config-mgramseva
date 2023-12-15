@@ -3,7 +3,7 @@ serviceMaps:
   mappings:
     - version: 1.0
       description: Save departemnt entity details in tables
-      fromTopic: save-dept-entity-application
+      fromTopic: save-dept-entity-application-mgramseva
       isTransaction: true
       queryMaps:
 
@@ -42,7 +42,7 @@ serviceMaps:
 
     - version: 1.0
       description: Update departemnt entity details in tables
-      fromTopic: update-dept-entity-application
+      fromTopic: update-dept-entity-application-mgramseva
       isTransaction: true
       queryMaps:
         - query: UPDATE department_entity SET tenant_id = ?,department_id = ?,code = ?,name = ?, hierarchy_level = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
@@ -83,7 +83,7 @@ serviceMaps:
 
     - version: 1.0
       description: Save department hierarchy level in table
-      fromTopic: save-dept-entity-hierarchy-application
+      fromTopic: save-dept-entity-hierarchy-application-mgramseva
       isTransaction: true
       queryMaps:
 

@@ -3,7 +3,7 @@ serviceMaps:
   mappings:
     - version: 1.0
       description: Save sms details in tables
-      fromTopic: save-sms-entity-application
+      fromTopic: save-sms-entity-application-mgramseva
       isTransaction: true
       queryMaps:
 

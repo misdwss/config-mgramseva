@@ -3,7 +3,7 @@ serviceMaps:
   mappings:
     - version: 1.0
       description: Save project details in tables
-      fromTopic: save-project-application
+      fromTopic: save-project-application-mgramseva
       isTransaction: true
       queryMaps:
 
@@ -49,7 +49,7 @@ serviceMaps:
             - jsonPath: $.project.*.locationIds.*.status
     - version: 1.0
       description: Update project details in tables
-      fromTopic: update-project-application
+      fromTopic: update-project-application-mgramseva
       isTransaction: true
       queryMaps:
         - query: UPDATE project SET tenant_id = ?,code = ?,name = ?, expenditure_id = ?, last_modified_by = ?, last_modified_time = ? WHERE id=?;
@@ -89,7 +89,7 @@ serviceMaps:
 
     - version: 1.0
       description: Save department in table
-      fromTopic: save-department-application
+      fromTopic: save-department-application-mgramseva
       isTransaction: true
       queryMaps:
 
@@ -118,7 +118,7 @@ serviceMaps:
 
     - version: 1.0
       description: Save expenditure in table
-      fromTopic: save-expenditure-application
+      fromTopic: save-expenditure-application-mgramseva
       isTransaction: true
       queryMaps:
 

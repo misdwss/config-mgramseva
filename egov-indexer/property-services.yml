@@ -2,7 +2,7 @@ ServiceMaps:
  serviceName: Property Tax - rainmaker
  version: 1.0.0
  mappings:
-  - topic: save-property-registry
+  - topic: save-property-registry-mgramseva
     configKey: INDEX
     indexes:
       - name: pt-fuzzy-search
@@ -158,7 +158,7 @@ ServiceMaps:
             - inJsonPath: $.MdmsRes.tenant.tenants
               outJsonPath: $.Data.tenantData
 
-  - topic: update-property-registry
+  - topic: update-property-registry-mgramseva
     configKey: INDEX
     indexes:
       - name: pt-fuzzy-search
@@ -314,7 +314,7 @@ ServiceMaps:
             - inJsonPath: $.MdmsRes.tenant.tenants
               outJsonPath: $.Data.tenantData      
               
-  - topic: cancel-property-registry
+  - topic: cancel-property-registry-mgramseva
     configKey: INDEX
     indexes:
       - name: property-services
@@ -464,7 +464,7 @@ ServiceMaps:
             - inJsonPath: $.MdmsRes.tenant.tenants
               outJsonPath: $.Data.tenantData
         
-  - topic: property-registry-legacyIndex
+  - topic: property-registry-legacyIndex-mgramseva
     configKey: LEGACYINDEX
     indexes:
       - name: property-services
@@ -564,7 +564,7 @@ ServiceMaps:
             - inJsonPath: $.MdmsRes.PropertyTax.UsageCategory[0].name
               outJsonPath: $.Data.usageCategory    
            
-  - topic: property-application-legacyIndex
+  - topic: property-application-legacyIndex-mgramseva
     configKey: LEGACYINDEX
     indexes:
       - name: property-application
@@ -625,7 +625,7 @@ ServiceMaps:
             - inJsonPath: $.MdmsRes.tenant.tenants
               outJsonPath: $.Data.tenantData
               
-  - topic: save-pt-assessment
+  - topic: save-pt-assessment-mgramseva
     configKey: INDEX
     indexes:
       - name: property-assessments
@@ -663,7 +663,7 @@ ServiceMaps:
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp
             
-  - topic: update-pt-assessment
+  - topic: update-pt-assessment-mgramseva
     configKey: INDEX
     indexes:
       - name: property-assessments
@@ -701,7 +701,7 @@ ServiceMaps:
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp
         
-  - topic: cancel-property-assessment
+  - topic: cancel-property-assessment-mgramseva
     configKey: INDEX
     indexes:
       - name: property-assessments
@@ -739,7 +739,7 @@ ServiceMaps:
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp
  
-  - topic: pt-assessment-legacyIndex
+  - topic: pt-assessment-legacyIndex-mgramseva
     configKey: LEGACYINDEX
     indexes:
       - name: property-assessments

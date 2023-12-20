@@ -148,7 +148,7 @@ serviceMaps:
       - jsonPath: $.Challan.id
 
   - version: 1.0.0
-    description: Update Challan details without isBillPaid,paidDate = ? in eg_echallan  table
+    description: Update Challan details without isBillPaid,paidDate = ? in eg_echallan table
     fromTopic: new-update-challan
     isTransaction: true
     queryMaps:

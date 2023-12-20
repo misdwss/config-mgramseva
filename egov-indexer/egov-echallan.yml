@@ -2,7 +2,7 @@ ServiceMaps:
  serviceName: echallan Service - rainmaker
  version: 1.0.0
  mappings:
-  - topic: save-challan
+  - topic: save-challan-mgramseva
     configKey: INDEX
     indexes:
       - name: echallan-services
@@ -76,7 +76,7 @@ ServiceMaps:
               outJsonPath: $.Data.history
      
 
-  - topic: update-challan
+  - topic: update-challan-mgramseva
     configKey: INDEX
     indexes:
       - name: echallan-services
@@ -150,7 +150,7 @@ ServiceMaps:
               outJsonPath: $.Data.history
               
               
-  - topic: echallan-legacyIndex
+  - topic: echallan-legacyIndex-mgramseva
     configKey: LEGACYINDEX
     indexes:
       - name: echallan-services

@@ -2,7 +2,7 @@ ServiceMaps:
  serviceName: Water Service - rainmaker
  version: 1.0.0
  mappings:
-  - topic: save-ws-connection
+  - topic: save-ws-connection-mgramseva
     configKey: INDEX
     indexes:
       - name: water-services
@@ -106,7 +106,7 @@ ServiceMaps:
               outJsonPath: $.Data.demands
      
 
-  - topic: update-ws-connection
+  - topic: update-ws-connection-mgramseva
     configKey: INDEX
     indexes:
       - name: water-services
@@ -203,7 +203,7 @@ ServiceMaps:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
               
-  - topic: update-ws-workflow
+  - topic: update-ws-workflow-mgramseva
     configKey: INDEX
     indexes:
       - name: water-services
@@ -300,7 +300,7 @@ ServiceMaps:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
 
-  - topic: ws-connection-legacyIndex
+  - topic: ws-connection-legacyIndex-mgramseva
     configKey: LEGACYINDEX
     indexes:
       - name: water-services-temp

@@ -4,7 +4,7 @@ serviceMaps:
  - version: 1.0
    name: WaterConnection
    description: create ConnectionDetails in connection and water_service_connection
-   fromTopic: save-ws-connection
+   fromTopic: save-ws-connection-mgramseva
    isTransaction: true
    queryMaps: 
     - query: INSERT INTO eg_ws_connection (id, tenantid, property_id, applicationno, applicationstatus, status, connectionno, oldconnectionno,roadcuttingarea,action,roadtype, createdby, lastmodifiedby, createdtime, lastmodifiedtime, applicationtype, dateEffectiveFrom, locality, isoldapplication,additionaldetails,previousReadingDate,arrears,paymentType,penalty,advance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);  
@@ -165,7 +165,7 @@ serviceMaps:
  - version: 1.0
    name: WaterConnection
    description: update ConnectionDetails in eg_ws_connection and eg_ws_service
-   fromTopic: update-ws-connection
+   fromTopic: update-ws-connection-mgramseva
    isTransaction: true
    queryMaps: 
    
@@ -445,7 +445,7 @@ serviceMaps:
  - version: 1.0
    name: WaterConnection
    description: update ConnectionDetails in eg_ws_connection and eg_ws_service
-   fromTopic: update-ws-workflow
+   fromTopic: update-ws-workflow-mgramseva
    isTransaction: true
    queryMaps: 
    
@@ -475,7 +475,7 @@ serviceMaps:
  - version: 1.0
    name: WaterConnection
    description: save filestore ids
-   fromTopic: save-ws-filestoreids
+   fromTopic: save-ws-filestoreids-mgramseva
    isTransaction: true
    queryMaps:
    
@@ -496,7 +496,7 @@ serviceMaps:
  - version: 1.0
    name: WaterConnection
    description: save water service feedback
-   fromTopic: ws-service-feedback-save
+   fromTopic: ws-service-feedback-save-mgramseva
    isTransaction: true
    queryMaps: 
     - query: INSERT INTO eg_ws_feedback (id, tenantid, connectionno, paymentid, billingcycle, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);

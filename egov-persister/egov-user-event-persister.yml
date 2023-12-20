@@ -4,7 +4,7 @@ serviceMaps:
   - version: 1.0
     name: mSeva 
     description: Persists events into the table
-    fromTopic: save-user-events
+    fromTopic: save-user-events-mgramseva
     isTransaction: true
     queryMaps:
     - query: INSERT INTO eg_usrevents_events(tenantid, id, source, eventtype, category, name, postedby, referenceid, description, status, eventdetails, actions, recepient, additionaldetails, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -76,7 +76,7 @@ serviceMaps:
   - version: 1.0
     name: mSeva
     description: Updates event details in the table
-    fromTopic: update-user-events
+    fromTopic: update-user-events-mgramseva
     isTransaction: true
     queryMaps:
     - query: UPDATE eg_usrevents_events SET description = ?, status = ?, name = ?, category = ?, eventdetails = ?, actions = ?, recepient = ?, additionaldetails = ?,  lastmodifiedby = ?, lastmodifiedtime = ? WHERE id = ?;
@@ -142,7 +142,7 @@ serviceMaps:
   - version: 1.0
     name: mSeva 
     description: Persists user last login details
-    fromTopic: user-events-lat
+    fromTopic: user-events-lat-mgramseva
     isTransaction: true
     queryMaps:      
     - query: INSERT INTO eg_usrevents_user_lat(userid, lastaccesstime) VALUES (?, ?) ON CONFLICT (userid) DO UPDATE SET lastaccesstime = ?;

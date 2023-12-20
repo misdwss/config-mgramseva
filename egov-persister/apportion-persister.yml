@@ -3,7 +3,7 @@ serviceMaps:
   mappings:
   - version: 1.0
     description: Persists apportioning request
-    fromTopic: save-apportion-request
+    fromTopic: save-apportion-request-mgramseva
     isTransaction: true
     queryMaps:
 
@@ -43,7 +43,7 @@ serviceMaps:
 
   - version: 1.0
     description: Persists apportioning response
-    fromTopic: save-apportion-response
+    fromTopic: save-apportion-response-mgramseva
     isTransaction: true
     queryMaps:
 
@@ -82,7 +82,7 @@ serviceMaps:
 
   - version: 1.0
     description: Persists apportioning request
-    fromTopic: save-apportion-bill-request
+    fromTopic: save-apportion-bill-request-mgramseva
     isTransaction: true
     queryMaps:
 
@@ -122,7 +122,7 @@ serviceMaps:
 
   - version: 1.0
     description: Persists apportioning response
-    fromTopic: save-apportion-bill-response
+    fromTopic: save-apportion-bill-response-mgramseva
     isTransaction: true
     queryMaps:
 
@@ -162,7 +162,7 @@ serviceMaps:
 
   - version: 1.0
     description: Persists apportioning request
-    fromTopic: save-apportion-demand-request
+    fromTopic: save-apportion-demand-request-mgramseva
     isTransaction: true
     queryMaps:
 
@@ -192,7 +192,7 @@ serviceMaps:
 
   - version: 1.0
     description: Persists apportioning response
-    fromTopic: save-apportion-demand-response
+    fromTopic: save-apportion-demand-response-mgramseva
     isTransaction: true
     queryMaps:
 

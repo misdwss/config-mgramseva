@@ -3,7 +3,7 @@ serviceMaps:
   mappings:
     - version: 1.0
       description: Persists migration related information in tables
-      fromTopic: de-migration-topic
+      fromTopic: de-migration-topic-mgramseva
       isTransaction: true
       queryMaps:
         - query: INSERT INTO department_entity_migration(id, tenantid, pagenumber, batchsize, totalnumberofrecordsmigrated, service_type, createdtime) VALUES (?, ?, ?, ?, ?, ?, ?);

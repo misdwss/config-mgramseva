@@ -133,7 +133,7 @@ serviceMaps:
 
       - jsonPath: $.Challan.isBillPaid
 
-      - jsonPath: $.Challan.NewpaidDate
+      - jsonPath: $.Challan.paidDate
 
       - jsonPath: $.Challan.vendor
 

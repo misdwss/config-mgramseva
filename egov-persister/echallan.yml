@@ -147,3 +147,43 @@ serviceMaps:
 
       - jsonPath: $.Challan.id
 
+  - version: 1.0.0
+    description: Update Challan details without isBillPaid,paidDate = ? in eg_echallan table
+    fromTopic: new-update-challan
+    isTransaction: true
+    queryMaps:
+
+    - query: UPDATE eg_echallan SET applicationStatus = ?, taxPeriodFrom = ?,taxPeriodTo = ?, lastmodifiedby = ?,  lastmodifiedtime = ?,description = ?, additionalDetail = ?, filestoreid = ?, vendor = ?, typeOfExpense = ?, accountid = ?, billDate = ?, billIssuedDate = ? WHERE id=?;
+      basePath: Challan
+      jsonMaps:
+
+      - jsonPath: $.Challan.applicationStatus
+
+      - jsonPath: $.Challan.taxPeriodFrom
+
+      - jsonPath: $.Challan.taxPeriodTo
+
+      - jsonPath: $.Challan.auditDetails.lastModifiedBy
+
+      - jsonPath: $.Challan.auditDetails.lastModifiedTime
+
+      - jsonPath: $.Challan.description
+
+      - jsonPath: $.Challan.additionalDetail
+        type: JSON
+        dbType: JSONB
+
+      - jsonPath: $.Challan.filestoreid
+
+      - jsonPath: $.Challan.vendor
+
+      - jsonPath: $.Challan.typeOfExpense
+
+      - jsonPath: $.Challan.citizen.uuid
+
+      - jsonPath: $.Challan.billDate
+
+      - jsonPath: $.Challan.billIssuedDate
+
+      - jsonPath: $.Challan.id
+

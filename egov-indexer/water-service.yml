@@ -312,8 +312,6 @@ ServiceMaps:
         customJsonMapping:
           indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"payments":{}}}
           fieldMapping:
-          - inJsonPath: $.applicationStatus.state
-            outJsonPath: $.Data.workflow.state
           - inJsonPath: $.processInstance.action
             outJsonPath: $.Data.workflow.action
           - inJsonPath: $.processInstance.assignes.*.uuid

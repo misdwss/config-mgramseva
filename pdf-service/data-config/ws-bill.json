@@ -686,8 +686,23 @@
             "externalAPI": [
               { 
                 "path": "http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
-                "apiRequest": null,
+                "apiRequest": {
+                  "MdmsCriteria": {
+                    "tenantId": "pb",
+                    "moduleDetails": [
+                      {
+                        "moduleName": "tenant",
+                        "masterDetails": [
+                          {
+                            "name": "tenants",
+                            "filter": "[?(@.code=='{$.tenantId}')]"
+                          }
+                     
+                        ]
+                      }
+                    ]
+                  }
+                },
                 "responseMapping":[
                   {             
                     "variable":"tenantaddress",

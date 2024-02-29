@@ -1,0 +1,44 @@
+serviceMaps:
+  serviceName: ifix-migration-toolkit
+  mappings:
+  - version: 1.0
+    description: Persists migration related information in tables
+    fromTopic: migration-progress-topic
+    isTransaction: true
+    queryMaps:
+    - query: INSERT INTO ifix_fiscal_events_migration(id, tenantid, pagenumber, batchsize, totalnumberofrecordsmigrated, createdtime) VALUES (?, ?, ?, ?, ?, ?);
+      basePath: $.MigrationCount
+      jsonMaps:
+      - jsonPath: $.MigrationCount.id
+
+      - jsonPath: $.MigrationCount.tenantId
+
+      - jsonPath: $.MigrationCount.pageNumber
+
+      - jsonPath: $.MigrationCount.batchSize
+
+      - jsonPath: $.MigrationCount.totalNumberOfRecordsMigrated
+
+      - jsonPath: $.MigrationCount.createdTime
+      
+  - version: 1.0
+    description: Persists migration related information in tables
+    fromTopic: de-migration-topic
+    isTransaction: true
+    queryMaps:
+    - query: INSERT INTO department_entity_migration(id, tenantid, pagenumber, batchsize, totalnumberofrecordsmigrated, service_type, createdtime) VALUES (?, ?, ?, ?, ?, ?, ?);
+      basePath: $.DepartmentEntityMigrationCount
+      jsonMaps:
+      - jsonPath: $.DepartmentEntityMigrationCount.id
+
+      - jsonPath: $.DepartmentEntityMigrationCount.tenantId
+
+      - jsonPath: $.DepartmentEntityMigrationCount.pageNumber
+
+      - jsonPath: $.DepartmentEntityMigrationCount.batchSize
+
+      - jsonPath: $.DepartmentEntityMigrationCount.totalNumberOfRecordsMigrated
+
+      - jsonPath: $.DepartmentEntityMigrationCount.service_type
+      
+      - jsonPath: $.DepartmentEntityMigrationCount.createdTime

@@ -1,7 +1,7 @@
 serviceMaps:
   serviceName: Mdms-Service
   mappings:
-    - version: 1.0
+    - version: 1.0.0
       description: Persists the schema definition
       fromTopic: save-mdms-schema-definition
       isTransaction: true
@@ -32,7 +32,7 @@ serviceMaps:
             - jsonPath: $.SchemaDefinition.auditDetails.lastModifiedTime
 
 
-    - version: 1.0
+    - version: 1.0.0
       description: Persists the mdms data
       fromTopic: save-mdms-data
       isTransaction: true
@@ -68,7 +68,7 @@ serviceMaps:
 
             - jsonPath: $.Mdms.auditDetails.lastModifiedTime
 
-    - version: 1.0
+    - version: 1.0.0
       description: Updates the mdms data
       fromTopic: update-mdms-data
       isTransaction: true

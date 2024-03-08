@@ -4662,6 +4662,33 @@
           "vizArray": [
             {
               "id": 231,
+              "name": "Comparision of Administrative Entities",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixDemandAndBillMetricsByZone",
+                  "name": "DSS_IFIX_DEMAND_AND_BILL_METRICS_BY_ZONE",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 6,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 231,
               "name": "Underperforming GPWSCs",
               "dimensions": {
                 "height": 350,
@@ -4682,8 +4709,35 @@
               ]
             }
           ]
+       },
+        {
+          "row": 7,
+          "name": "DSS_OVERVIEW",
+          "vizArray": [
+            {
+              "id": 232,
+              "name": "E-Bills Unpaid",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "noUnit": false,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "dssIfixEBillsUnpaid",
+                  "name": "DSS_IFIX_EBIILS_UNPAID",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
         } 
       ]
     }
-    ]
+  ]
 }

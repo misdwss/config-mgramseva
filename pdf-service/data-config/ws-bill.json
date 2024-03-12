@@ -826,7 +826,7 @@
               },
               {
                 "variable": "advanceAdjustedAmountTwo",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].taxAmount"
               },
               {
                 "variable": "totalBillTaxAmount",

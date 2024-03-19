@@ -653,7 +653,7 @@
             },
              {
             "variable":"advanceAdjustedAmount",
-            "formula":"{{advanceAdjustedAmountOneTax}}=={{advanceAdjustedAmountOne}}?0:{{advanceAdjustedAmountOne}}-{{advanceAdjustedAmountTwo}}"
+            "formula":"-{{advanceAdjustedAmountOne}}"
           },
 		    {
             "variable":"ws_charge_amt",
@@ -822,7 +822,7 @@
               "apiRequest": null,
               "responseMapping": [{
                 "variable": "advanceAdjustedAmountOne",
-                "value": "$.Demands[?(@.consumerType == 'waterConnection-advance')].demandDetails[(@.length-2)].collectionAmount"
+                "value": "$.AdvanceAdjustedAmount"
               },
 	      {
                 "variable": "WCharge",

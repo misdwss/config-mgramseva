@@ -683,7 +683,7 @@
           {
             "externalAPI": [
               { 
-                "path": "http://egov-mdms-service.mgramseva:8080/egov-mdms-service/v1/_get",
+                "path": "http://mdms-v2.mgramseva:8080/mdms-v2/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[

@@ -28,7 +28,7 @@
               {
                 "variable": "GPWSC",
                 "value": {
-                  "path": "$.bill[0].tenantId"
+                  "path": "$.Bill[0].tenantId"
                 },
                 "localisation": {
                   "required": true,
@@ -519,19 +519,19 @@
               {
                 "variable": "mobileNo",
                 "value": {
-                  "path": "$.bill[0].mobileNumber"
+                  "path": "$.Bill[0].mobileNumber"
                 }
               },
               {
                 "variable": "billNo",
                 "value": {
-                  "path": "$.bill[0].billNumber"
+                  "path": "$.Bill[0].billNumber"
                 }
               },
               {
                 "variable": "fromPeriod",
                 "value": {
-                  "path": "$.bill[0].billDetails"
+                  "path": "$.Bill[0].billDetails"
                 },
                 "type":"function",
                 "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod+19800000).getDate())<10?'0'+new Date(x[0].fromPeriod+19800000).getDate():new Date(x[0].fromPeriod+19800000).getDate())+'/'+((new Date(x[0].fromPeriod+19800000).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod+19800000).getMonth()+1):(new Date(x[0].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].fromPeriod+19800000).getFullYear())"
@@ -539,7 +539,7 @@
               {
                 "variable": "toPeriod",
                 "value": {
-                  "path": "$.bill[0].billDetails"
+                  "path": "$.Bill[0].billDetails"
                 },
                 "type":"function",
                 "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())"
@@ -547,7 +547,7 @@
               {
                 "variable": "billIssueDate",
                 "value": {
-                  "path": "$.bill[0].billDate"
+                  "path": "$.Bill[0].billDate"
                 },
                 "type": "date",
                 "format":"DD/MM/YYYY HH:mm "
@@ -555,58 +555,58 @@
               {
                 "variable": "billDueDate",
                 "value": {
-                  "path": "$.bill[0].billDetails[0].expiryDate"
+                  "path": "$.Bill[0].billDetails[0].expiryDate"
                 },
                 "type": "date"
               },
               {
                 "variable": "billdate",
                 "value": {
-                  "path": "$.bill[0].billDate"
+                  "path": "$.Bill[0].billDate"
                 },
                 "type": "date"
               },
               {
                 "variable": "propertyID",
                 "value": {
-                  "path": "$.bill[0].consumerCode"
+                  "path": "$.Bill[0].consumerCode"
                 }
               },
               {
                 "variable": "waterCess",
                 "value": {
-                  "path": "$.bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_WATER_CESS' || @.taxHeadCode == 'SW_SEWERAGE_CESS')].amount"
+                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_WATER_CESS' || @.taxHeadCode == 'SW_SEWERAGE_CESS')].amount"
                 }
               },
               {
                 "variable": "ceilingDebit",
                 "value": {
-                  "path": "$.bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_DEBIT')].amount"
+                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_DEBIT')].amount"
                 }
               },
               {
                 "variable": "ceilingCredit",
                 "value": {
-                  "path": "$.bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_CREDIT')].amount"
+                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_CREDIT')].amount"
                 }
               },
               {
                 "variable": "consumerID",
                 "value": {
-                  "path": "$.bill[0].consumerCode"
+                  "path": "$.Bill[0].consumerCode"
                 }
               },
               {
                 "variable": "date",
                 "value": {
-                  "path": "$.bill[0].billDate"
+                  "path": "$.Bill[0].billDate"
                 },
                 "type": "date"
               },
               {
                 "variable": "totalPayment",
                 "value": {
-                  "path": "$.bill[0].billDetails[0].amountPaid"
+                  "path": "$.Bill[0].billDetails[0].amountPaid"
                 }
               },
               {

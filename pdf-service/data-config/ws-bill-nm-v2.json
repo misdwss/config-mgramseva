@@ -4,7 +4,7 @@
     "serviceName": "mgramseva-common",
     "version": "1.0.0",
     "baseKeyPath": "$.BillAndDemand.*",
-    "entityIdPath": "$Bill[0].billNumber",
+    "entityIdPath": "$.Bill[0].billNumber",
     "isCommonTableBorderRequired": true,
     "mappings": [
       {

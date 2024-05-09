@@ -28,7 +28,7 @@
               {
                 "variable": "GPWSC",
                 "value": {
-                  "path": "$bill[0].tenantId"
+                  "path": "$.bill[0].tenantId"
                 },
                 "localisation": {
                   "required": true,

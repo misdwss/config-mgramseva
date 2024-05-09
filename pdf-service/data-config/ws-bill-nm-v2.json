@@ -529,22 +529,6 @@
                 }
               },
               {
-                "variable": "fromPeriod",
-                "value": {
-                  "path": "$.bill[0].billDetails"
-                },
-                "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod+19800000).getDate())<10?'0'+new Date(x[0].fromPeriod+19800000).getDate():new Date(x[0].fromPeriod+19800000).getDate())+'/'+((new Date(x[0].fromPeriod+19800000).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod+19800000).getMonth()+1):(new Date(x[0].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].fromPeriod+19800000).getFullYear())"
-              },
-              {
-                "variable": "toPeriod",
-                "value": {
-                  "path": "$.bill[0].billDetails"
-                },
-                "type":"function",
-                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())"
-              },
-              {
                 "variable": "billIssueDate",
                 "value": {
                   "path": "$.bill[0].billDate"
@@ -614,27 +598,6 @@
                 "value": {
                   "path":"$.AggregatedDemands.totalAreasWithPenalty"
                 }
-              },
-              {
-                "variable": "arrears",
-                "value": {
-                  "path":"$.bill[0].billDetails"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "mgramseva-common"
-                },
-                "type":"function",
-                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹  '+x[i].amount});} return y;"
-              },
-              {
-                "variable": "ws_charge",
-                "value": {
-                  "path":"$.bill[0].billDetails"
-                },
-                "type":"function",
-                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;"
               },
               {
                 "variable": "current_month_penalty",

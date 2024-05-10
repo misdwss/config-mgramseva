@@ -627,31 +627,17 @@
                 "value": {
                   "path":"$.AggregatedDemands.currentMonthPenalty"
                 }
+              },
+              {
+                "variable": "WCharge",
+                "value": {
+                  "path":"$.AggregatedDemands.currentmonthBill"
+                }
               }
             ]
           },
           {
             "derived": [
-              {
-                "variable":"waterquality_rate_value",
-                "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
-              },
-              {
-                "variable":"watersupply_rate_value",
-                "formula":"('{{watersupply_rate}}' =='NA' || {{watersupply_rate}} ==0 )? 'NA' : '{{watersupply_rate}}/5'"
-              },
-              {
-                "variable":"supplyregula_rate_value",
-                "formula":"'{{supplyregula_rate}}'=='NA' ? 'NA' : '{{supplyregula_rate}}/5'"
-              },
-              {
-                "variable":"address",
-                "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
-              },
-              {
-                "variable":"advanceAdjustedAmount",
-                "formula":"-{{advanceAdjustedAmountOne}}"
-              },
               {
                 "variable":"ws_charge_amt",
                 "formula":"{{WCharge}}"
@@ -671,11 +657,6 @@
               {
                 "variable":"netAmountDueWithPenalty",
                 "formula":"{{totalAmountDueWithPenalty}}"
-              },
-              {
-                "variable":"penaltyDueDate",
-                "formula":"{{billExpiry}}+{{demandIssuedDate}}",
-                "type":"date"
               }
             ]
           }

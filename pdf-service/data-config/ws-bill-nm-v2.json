@@ -607,6 +607,14 @@
                 "value": {
                   "path":"$.AggregatedDemands.currentMonthPenalty"
                 }
+              },
+              {
+                "variable": "ws_charge",
+                "value": {
+                  "path":"$.Bill[0].billDetails"
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;"
               }
             ]
           },
@@ -644,7 +652,7 @@
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalAmountDue}}"
+                "formula":"{{totalAmountDueWithPenalty}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",

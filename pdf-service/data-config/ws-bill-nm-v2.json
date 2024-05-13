@@ -3,7 +3,7 @@
   "DataConfigs": {
     "serviceName": "mgramseva-common",
     "version": "1.0.0",
-    "baseKeyPath": "$.BillAndDemand.",
+    "baseKeyPath": "$.BillAndDemand",
     "entityIdPath": "$.Bill[0].billNumber",
     "isCommonTableBorderRequired": true,
     "mappings": [

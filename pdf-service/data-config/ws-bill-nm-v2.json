@@ -511,6 +511,12 @@
                 }
               },
               {
+                "variable": "total",
+                "value": {
+                  "path": "$.Bill[0].totalAmount"
+                }
+              },
+              {
                 "variable": "totalAmountDueWithPenalty",
                 "value": {
                   "path": "$.AggregatedDemands.netDueWithPenalty"
@@ -527,6 +533,22 @@
                 "value": {
                   "path": "$.Bill[0].billNumber"
                 }
+              },
+              {
+                "variable": "fromPeriod",
+                "value": {
+                  "path": "$.Bill[0].billDetails"
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return (((new Date(x[0].fromPeriod+19800000).getDate())<10?'0'+new Date(x[0].fromPeriod+19800000).getDate():new Date(x[0].fromPeriod+19800000).getDate())+'/'+((new Date(x[0].fromPeriod+19800000).getMonth()+1)<10?'0'+(new Date(x[0].fromPeriod+19800000).getMonth()+1):(new Date(x[0].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].fromPeriod+19800000).getFullYear())"
+              },
+              {
+                "variable": "toPeriod",
+                "value": {
+                  "path": "$.Bill[0].billDetails"
+                },
+                "type":"function",
+                "format":"var y=0,x=arguments[0];x.sort(function(a, b){return b.toPeriod - a.toPeriod}); return (((new Date(x[0].toPeriod+19800000).getDate())<10?('0'+new Date(x[0].toPeriod+19800000).getDate()):new Date(x[0].toPeriod+19800000).getDate())+'/'+((new Date(x[0].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[0].toPeriod+19800000).getMonth()+1)):(new Date(x[0].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[0].toPeriod+19800000).getFullYear())"
               },
               {
                 "variable": "billIssueDate",
@@ -557,24 +579,6 @@
                 }
               },
               {
-                "variable": "waterCess",
-                "value": {
-                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'WS_WATER_CESS' || @.taxHeadCode == 'SW_SEWERAGE_CESS')].amount"
-                }
-              },
-              {
-                "variable": "ceilingDebit",
-                "value": {
-                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_DEBIT')].amount"
-                }
-              },
-              {
-                "variable": "ceilingCredit",
-                "value": {
-                  "path": "$.Bill[0].billDetails[0].billAccountDetails[?(@.taxHeadCode == 'PT_DECIMAL_CEILING_CREDIT')].amount"
-                }
-              },
-              {
                 "variable": "consumerID",
                 "value": {
                   "path": "$.Bill[0].consumerCode"
@@ -586,12 +590,6 @@
                   "path": "$.Bill[0].billDate"
                 },
                 "type": "date"
-              },
-              {
-                "variable": "totalPayment",
-                "value": {
-                  "path": "$.Bill[0].billDetails[0].amountPaid"
-                }
               },
               {
                 "variable": "totalArrears",
@@ -614,12 +612,6 @@
                 "variable": "current_month_penalty",
                 "value": {
                   "path":"$.AggregatedDemands.currentMonthPenalty"
-                }
-              },
-              {
-                "variable": "WCharge",
-                "value": {
-                  "path":"$.AggregatedDemands.currentmonthBill"
                 }
               }
             ]

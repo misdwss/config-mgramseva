@@ -667,7 +667,7 @@
             "externalAPI": [
               {
                 "path": "http://mdms-v2.mgramseva:8080/mdms-v2/v1/_get",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.Bill[0].tenantId}&filter=%5B?(@.code=='{$.Bill[0].tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
                   {
@@ -704,7 +704,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
-                "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
+                "queryParam": "tenantId=$.Bill[0].tenantId,connectionNumber=$.Bill[0].consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -738,7 +738,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
-                "queryParam": "tenantId=$.tenantId,",
+                "queryParam": "tenantId=$.Bill[0].tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -757,7 +757,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -780,7 +780,7 @@
               },
               {
                 "path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
-                "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=$.businessService",
+                "queryParam": "tenantId=$.Bill[0].tenantId,consumerCode=$.Bill[0].consumerCode,businessService=$.Bill[0].businessService",
                 "apiRequest": null,
                 "responseMapping": [{
                   "variable": "advanceAdjustedAmountOne",
@@ -809,18 +809,8 @@
                 ]
               },
               {
-                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
-                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "totalApplicablePenalty",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
-                  }]
-              },
-              {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {

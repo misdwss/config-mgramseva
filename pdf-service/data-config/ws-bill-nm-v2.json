@@ -613,12 +613,34 @@
           {
             "derived": [
               {
+                "variable":"waterquality_rate_value",
+                "formula":"'{{waterquality_rate}}'=='NA'? 'NA' : '{{waterquality_rate}}/5'"
+              },{
+                "variable":"watersupply_rate_value",
+                "formula":"('{{watersupply_rate}}' =='NA' || {{watersupply_rate}} ==0 )? 'NA' : '{{watersupply_rate}}/5'"
+              },{
+                "variable":"supplyregula_rate_value",
+                "formula":"'{{supplyregula_rate}}'=='NA' ? 'NA' : '{{supplyregula_rate}}/5'"
+              },
+              {
+                "variable":"address",
+                "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
+              },
+              {
+                "variable":"advanceAdjustedAmount",
+                "formula":"-{{advanceAdjustedAmountOne}}"
+              },
+              {
+                "variable":"ws_charge_amt",
+                "formula":"{{WCharge}}"
+              },
+              {
                 "variable":"totalArrear",
                 "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{current_month_penalty}} + {{totalArrear}}"
+                "formula":"{{ws_charge_amt}} + {{current_month_penalty}} + {{totalArrear}}"
               },
               {
                 "variable":"netAmountDue",
@@ -627,6 +649,182 @@
               {
                 "variable":"netAmountDueWithPenalty",
                 "formula":"{{totalAmountDueWithPenalty}}"
+              },
+              {
+                "variable":"penaltyDueDate",
+                "formula":"{{billExpiry}}+{{demandIssuedDate}}",
+                "type":"date"
+              }
+            ]
+          },
+          {
+            "externalAPI": [
+              {
+                "path": "http://mdms-v2.mgramseva:8080/mdms-v2/v1/_get",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.Bill[0].tenantId}&filter=%5B?(@.code=='{$.Bill[0].tenantId}')%5D",
+                "apiRequest": null,
+                "responseMapping":[
+                  {
+                    "variable":"tenantaddress",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
+                      "prefix": "TENANT_TENANTS",
+                      "module":"mgramseva-common"
+                    }
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
+                "queryParam": "tenantId=$.Bill[0].tenantId,connectionNumber=$.Bill[0].consumerCode",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "meternumber",
+                    "value": "$.WaterConnection[(@.length-1)].meterId"
+                  },{
+                    "variable": "serviceType",
+                    "value": "$.WaterConnection[(@.length-1)].connectionType",
+                    "localisation":{
+                      "required":true,
+                      "prefix": "WS",
+                      "module":"mgramseva-common"
+                    }
+                  },{
+                    "variable": "payerName",
+                    "value": "$.WaterConnection[(@.length-1)].connectionHolders[0].name"
+                  },{
+                    "variable": "doorHouseNo",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.doorNo",
+                    "type":"setEmpty"
+                  },
+                  {
+                    "variable": "streetName",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.street",
+                    "type":"setEmpty"
+                  }, {
+                    "variable": "mohalla",
+                    "value": "$.WaterConnection[(@.length-1)].additionalDetails.locality"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
+                "queryParam": "tenantId=$.Bill[0].tenantId",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "watersupply_rate",
+                    "value": "$.feedback.HAPPY_WATER_SUPPLY"
+                  },
+                  {
+                    "variable": "waterquality_rate",
+                    "value": "$.feedback.WATER_QUALITY_GOOD"
+                  },
+                  {
+                    "variable": "supplyregula_rate",
+                    "value": "$.feedback.WATER_SUPPLY_REGULAR"
+                  }
+                ]
+              },
+              {
+                "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "pendingcollection",
+                    "value": "$.LastMonthSummary.cumulativePendingCollection"
+                  },
+                  {
+                    "variable": "newdemand",
+                    "value": "$.LastMonthSummary.newDemand"
+                  },
+                  {
+                    "variable": "actualcollection",
+                    "value": "$.LastMonthSummary.actualCollection"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
+                  }
+                ]
+              },
+              {
+                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
+                "queryParam": "tenantId=$.Bill[0].tenantId,consumerCode=$.Bill[0].consumerCode,businessService=$.Bill[0].businessService",
+                "apiRequest": null,
+                "responseMapping": [{
+                  "variable": "advanceAdjustedAmountOne",
+                  "value": "$.AdvanceAdjustedAmount"
+                },
+                  {
+                    "variable": "WCharge",
+                    "value": "$.WaterCharge"
+                  },
+                  {
+                    "variable": "totalBillTaxAmount",
+                    "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].taxAmount"
+                  },{
+                    "variable": "totalBillCollectionAmount",
+                    "value": "$.Demands[(@.length-1)].demandDetails[(@.length-1)].collectionAmount"
+                  },
+                  {
+                    "variable": "billExpiry",
+                    "value": "$.Demands[(@.length-1)].billExpiryTime"
+                  },
+                  {
+                    "variable": "demandIssuedDate",
+                    "value": "$.Demands[(@.length-1)].auditDetails.createdTime"
+                  }
+
+                ]
+              },
+              {
+                "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "actualpayment",
+                    "value": "$.LastMonthSummary.previousMonthCollection"
+                  },
+                  {
+                    "variable": "newexpenditure",
+                    "value": "$.LastMonthSummary.previousMonthNewExpense"
+                  },
+                  {
+                    "variable": "pendingexpenditure",
+                    "value": "$.LastMonthSummary.cumulativePendingExpense"
+                  },
+                  {
+                    "variable": "previousMonthYear",
+                    "value": "$.LastMonthSummary.previousMonthYear"
+                  }
+
+                ]
               }
             ]
           }

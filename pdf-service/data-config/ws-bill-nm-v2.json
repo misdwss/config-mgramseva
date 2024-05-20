@@ -667,7 +667,7 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{ws_charge_amt}} + {{totalArrear}} + {{current_month_penalty}}"
+                "formula":"{{ws_charge_amt}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDue",

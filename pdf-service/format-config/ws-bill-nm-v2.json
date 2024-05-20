@@ -389,7 +389,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹  {{ws_charge_amt}}",
+                              "text": "₹  {{ws_charge}}",
                               "border": [
                                 false,
                                 false,
@@ -542,7 +542,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{totalApplicablePenalty}}",
+                              "text": "₹ {{current_month_penalty}}",
                               "border": [
                                 false,
                                 false,

@@ -615,6 +615,12 @@
                 },
                 "type":"function",
                 "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;"
+              },
+              {
+                "variable": "CurrentMonthWaterCharge",
+                "value": {
+                  "path":"$.AggregatedDemands.currentmonthBill"
+                }
               }
             ]
           },
@@ -640,7 +646,7 @@
               },
               {
                 "variable":"ws_charge_amt",
-                "formula":"{{WCharge}}"
+                "formula":"{{CurrentMonthWaterCharge}}"
               },
               {
                 "variable":"totalArrear",
@@ -648,15 +654,15 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{ws_charge_amt}} + {{current_month_penalty}} + {{totalArrear}}"
+                "formula":"{{ws_charge_amt}} + {{totalArrear}}"
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalAmountDueWithPenalty}}"
+                "formula":"{{totalBillAmount}}-{{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",
-                "formula":"{{totalAmountDueWithPenalty}}"
+                "formula":"{{netAmountDue}}"
               },
               {
                 "variable":"penaltyDueDate",

@@ -542,7 +542,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{penaltyafterduedate}}",
+                              "text": "₹ {{totalApplicablePenalty}}",
                               "border": [
                                 false,
                                 false,

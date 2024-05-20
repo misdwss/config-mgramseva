@@ -597,10 +597,24 @@
                 }
               },
               {
+                "value": {
+                  "path": "$.AggregatedDemands.totalAreasWithPenalty"
+                },
+                "variable": "arrears"
+              },
+              {
                 "variable": "current_month_penalty",
                 "value": {
                   "path":"$.AggregatedDemands.currentMonthPenalty"
                 }
+              },
+              {
+                "format": "var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;",
+                "type": "function",
+                "value": {
+                  "path": "$.Bill[0].billDetails"
+                },
+                "variable": "ws_charge"
               },
               {
                 "variable": "CurrentMonthWaterCharge",
@@ -609,7 +623,7 @@
                 }
               },
               {
-                "variable": "penaltyafterduedate",
+                "variable": "totalApplicablePenalty",
                 "value": {
                   "path":"$.AggregatedDemands.totalApplicablePenalty"
                 }
@@ -645,16 +659,12 @@
                 "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
               },
               {
-                "variable":"penaltyafterduedate",
-                "formula":"{{penaltyafterduedate}}"
-              },
-              {
                 "variable":"totalBillAmount",
                 "formula":"{{ws_charge_amt}} + {{totalArrear}} + {{current_month_penalty}}"
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalBillAmount}}-{{advanceAdjustedAmount}}"
+                "formula":"{{totalBillAmount}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",
@@ -811,16 +821,6 @@
                   }
 
                 ]
-              },
-              {
-                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
-                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
-                "apiRequest": null,
-                "responseMapping": [
-                  {
-                    "variable": "totalApplicablePenalty",
-                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
-                  }]
               },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",

@@ -507,7 +507,7 @@
               {
                 "variable": "totalAmountDue",
                 "value": {
-                  "path": "$.AggregatedDemands.netdue"
+                  "path": "$.AggregatedDemands.netDueWithPenalty"
                 }
               },
               {

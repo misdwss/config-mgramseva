@@ -599,8 +599,15 @@
               {
                 "variable": "arrears",
                 "value": {
-                  "path":"$.AggregatedDemands.totalAreasWithPenalty"
-                }
+                  "path":"$.Bill[0].billDetails"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹  '+x[i].amount});} return y;"
               },
               {
                 "variable": "current_month_penalty",
@@ -620,6 +627,12 @@
                 "variable": "CurrentMonthWaterCharge",
                 "value": {
                   "path":"$.AggregatedDemands.currentmonthBill"
+                }
+              },
+              {
+                "variable": "penaltyafterduedate",
+                "value": {
+                  "path":"$.AggregatedDemands.totalApplicablePenalty"
                 }
               }
             ]
@@ -653,8 +666,12 @@
                 "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
               },
               {
+                "variable":"penaltyafterduedate",
+                "formula":"{{penaltyafterduedate}}"
+              },
+              {
                 "variable":"totalBillAmount",
-                "formula":"{{ws_charge_amt}} + {{totalArrear}}"
+                "formula":"{{ws_charge_amt}} + {{totalArrear}} + {{current_month_penalty}}"
               },
               {
                 "variable":"netAmountDue",
@@ -815,6 +832,16 @@
                   }
 
                 ]
+              },
+              {
+                "path": "http://ws-calculator.mgramseva:8080/ws-calculator/waterCalculator/_getPenaltyDetails",
+                "queryParam": "tenantId=$.tenantId,consumerCodes=$.consumerCode,isGetPenaltyEstimate=true",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "totalApplicablePenalty",
+                    "value": "$.Demands[(@.length-1)].demandDetails[?(@.taxHeadMasterCode == 'WS_TIME_PENALTY')].taxAmount"
+                  }]
               },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",

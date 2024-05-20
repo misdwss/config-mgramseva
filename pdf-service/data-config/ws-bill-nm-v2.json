@@ -597,10 +597,17 @@
                 }
               },
               {
+                "variable": "arrears",
                 "value": {
-                  "path": "$.AggregatedDemands.totalAreasWithPenalty"
+                  "path":"$.Bill[0].billDetails"
                 },
-                "variable": "arrears"
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹  '+x[i].amount});} return y;"
               },
               {
                 "variable": "current_month_penalty",
@@ -664,11 +671,11 @@
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalBillAmount}} - {{advanceAdjustedAmount}}"
+                "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",
-                "formula":"{{netAmountDue}}"
+                "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
               },
               {
                 "variable":"penaltyDueDate",

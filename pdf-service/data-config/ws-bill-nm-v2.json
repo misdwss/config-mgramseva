@@ -659,7 +659,7 @@
               },
               {
                 "variable":"ws_charge_amt",
-                "formula":"{{CurrentMonthWaterCharge}}"
+                "formula":"{{CurrentMonthWaterCharge}}-{{advanceAdjustedAmount}}"
               },
               {
                 "variable":"totalArrear",

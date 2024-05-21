@@ -467,6 +467,28 @@
                           ],
                           [
                             {
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table",
+                              "text": "Penalty for {{fromPeriod}}-{{toPeriod}}"
+                            },
+                            {
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value",
+                              "text": "₹  {{current_month_penalty}}"
+                            }
+                          ],
+                          [
+                            {
                               "text": "{{water_arrears}}",
                               "border": [
                                 false,

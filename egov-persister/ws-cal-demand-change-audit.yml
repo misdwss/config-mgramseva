@@ -7,7 +7,7 @@ serviceMaps:
       isTransaction: true
       queryMaps:
 
-        - query: INSERT INTO eg_ws_demand_auditchange ( id, consumercode, tenant_id, status, data, createdby, createdtime ) VALUES (?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_ws_demand_auditchange ( id, consumercode, tenant_id, status, action, data, createdby, createdtime ) VALUES (?, ?, ?, ?, ?, ?, ?);
           basePath: wsDemandChangeAuditRequest
           jsonMaps:
             - jsonPath: $.wsDemandChangeAuditRequest.id
@@ -17,6 +17,8 @@ serviceMaps:
             - jsonPath: $.wsDemandChangeAuditRequest.tenant_id
 
             - jsonPath: $.wsDemandChangeAuditRequest.status
+
+            - jsonPath: $.wsDemandChangeAuditRequest.action
 
             - jsonPath: $.wsDemandChangeAuditRequest.data
 

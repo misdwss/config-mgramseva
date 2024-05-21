@@ -466,25 +466,26 @@
                             }
                           ],
                           [
-                            {
+                            { "text": "Penalty for {{fromPeriod}}-{{toPeriod}}",
                               "border": [
                                 false,
                                 false,
                                 false,
                                 false
                               ],
-                              "style": "receipt-table",
-                              "text": "Penalty for {{fromPeriod}}-{{toPeriod}}"
+                              "style": "receipt-table"
+
                             },
                             {
+                              "text": "₹  {{current_month_penalty}}",
                               "border": [
                                 false,
                                 false,
                                 false,
                                 false
                               ],
-                              "style": "receipt-table-value",
-                              "text": "₹  {{current_month_penalty}}"
+                              "style": "receipt-table-value"
+
                             }
                           ],
                           [

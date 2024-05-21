@@ -549,8 +549,7 @@
                 "value": {
                   "path": "$.Bill[0].billDate"
                 },
-                "type": "date",
-                "format":"DD/MM/YYYY HH:mm "
+                "type": "date"
               },
               {
                 "variable": "billDueDate",
@@ -620,6 +619,11 @@
                 "value": {
                   "path":"$.Bill[0].billDetails"
                 },
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                },
                 "type":"function",
                 "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod+19800000).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹ '+x[i].amount});} return y;"
               },{
@@ -683,7 +687,7 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{ws_charge_amt}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDue",
@@ -704,7 +708,7 @@
             "externalAPI": [
               {
                 "path": "http://mdms-v2.mgramseva:8080/mdms-v2/v1/_get",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.tenantId}&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId={$.Bill[0].tenantId}&filter=%5B?(@.code=='{$.Bill[0].tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
                   {
@@ -741,7 +745,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_search",
-                "queryParam": "tenantId=$.tenantId,connectionNumber=$.consumerCode",
+                "queryParam": "tenantId=$.Bill[0].tenantId,connectionNumber=$.Bill[0].consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -775,7 +779,7 @@
               },
               {
                 "path": "http://ws-calculator.mgramseva:8080/ws-calculator/meterConnection/_search",
-                "queryParam": "tenantId=$.tenantId,connectionNos=$.consumerCode",
+                "queryParam": "tenantId=$.Bill[0].tenantId,connectionNos=$.Bill[0].consumerCode",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -794,7 +798,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_getfeedback",
-                "queryParam": "tenantId=$.tenantId,",
+                "queryParam": "tenantId=$.Bill[0].tenantId,",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -813,7 +817,7 @@
               },
               {
                 "path": "http://ws-services.mgramseva:8080/ws-services/wc/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {
@@ -836,7 +840,7 @@
               },
               {
                 "path": "http://billing-service.mgramseva:8080/billing-service/demand/_history",
-                "queryParam": "tenantId=$.tenantId,consumerCode=$.consumerCode,businessService=$.businessService",
+                "queryParam": "tenantId=$.Bill[0].tenantId,consumerCode=$.Bill[0].consumerCode,businessService=$.Bill[0].businessService",
                 "apiRequest": null,
                 "responseMapping": [{
                   "variable": "advanceAdjustedAmountOne",
@@ -871,7 +875,7 @@
               },
               {
                 "path": "http://echallan-services.mgramseva:8080/echallan-services/eChallan/v1/_lastMonthSummary",
-                "queryParam": "tenantId=$.tenantId,currentDate=$.billDate",
+                "queryParam": "tenantId=$.Bill[0].tenantId,currentDate=$.Bill[0].billDate",
                 "apiRequest": null,
                 "responseMapping": [
                   {

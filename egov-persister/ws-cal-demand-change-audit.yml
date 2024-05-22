@@ -21,7 +21,8 @@ serviceMaps:
             - jsonPath: $.wsDemandChangeAuditRequest.action
 
             - jsonPath: $.wsDemandChangeAuditRequest.data
-
+              type: JSON
+              dbType: JSONB
             - jsonPath: $.wsDemandChangeAuditRequest.createdby
 
             - jsonPath: $.wsDemandChangeAuditRequest.createdtime

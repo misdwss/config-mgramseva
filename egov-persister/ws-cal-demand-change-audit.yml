@@ -1,0 +1,28 @@
+serviceMaps:
+  serviceName: egov-notification-sms
+  mappings:
+    - version: 1.0
+      description: Save demand change from ws-cal audit details in tables
+      fromTopic: save-ws-demand-change-audit
+      isTransaction: true
+      queryMaps:
+
+        - query: INSERT INTO eg_ws_demand_auditchange ( id, consumercode, tenant_id, status, action, data, createdby, createdtime ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+          basePath: wsDemandChangeAuditRequest
+          jsonMaps:
+            - jsonPath: $.wsDemandChangeAuditRequest.id
+
+            - jsonPath: $.wsDemandChangeAuditRequest.consumercode
+
+            - jsonPath: $.wsDemandChangeAuditRequest.tenant_id
+
+            - jsonPath: $.wsDemandChangeAuditRequest.status
+
+            - jsonPath: $.wsDemandChangeAuditRequest.action
+
+            - jsonPath: $.wsDemandChangeAuditRequest.data
+              type: JSON
+              dbType: JSONB
+            - jsonPath: $.wsDemandChangeAuditRequest.createdby
+
+            - jsonPath: $.wsDemandChangeAuditRequest.createdtime

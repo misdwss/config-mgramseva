@@ -8,7 +8,7 @@ serviceMaps:
       queryMaps:
 
         - query: INSERT INTO eg_ws_demand_auditchange ( id, consumercode, tenant_id, status, action, data, createdby, createdtime ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-          basePath: $.wsDemandChangeAuditRequest
+          basePath: $.WsDemandChangeAuditRequestWrapper
           jsonMaps:
             - jsonPath: $.wsDemandChangeAuditRequest.id
 

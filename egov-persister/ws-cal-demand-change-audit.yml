@@ -8,21 +8,21 @@ serviceMaps:
       queryMaps:
 
         - query: INSERT INTO eg_ws_demand_auditchange ( id, consumercode, tenant_id, status, action, data, createdby, createdtime ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-          basePath: $.WsDemandChangeAuditRequestWrapper
+          basePath: $.WsDemandChangeAuditRequest
           jsonMaps:
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.id
+            - jsonPath: $.WsDemandChangeAuditRequest.id
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.consumercode
+            - jsonPath: $.WsDemandChangeAuditRequest.consumercode
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.tenant_id
+            - jsonPath: $.WsDemandChangeAuditRequest.tenant_id
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.status
+            - jsonPath: $.WsDemandChangeAuditRequest.status
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.action
+            - jsonPath: $.WsDemandChangeAuditRequest.action
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.data
+            - jsonPath: $.WsDemandChangeAuditRequest.data
               type: JSON
               dbType: JSONB
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.createdby
+            - jsonPath: $.WsDemandChangeAuditRequest.createdby
 
-            - jsonPath: $.WsDemandChangeAuditRequestWrapper.createdtime
+            - jsonPath: $.WsDemandChangeAuditRequest.createdtime

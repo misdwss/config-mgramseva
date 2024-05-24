@@ -1,5 +1,5 @@
 serviceMaps:
-  serviceName: egov-notification-sms
+  serviceName: egov-ws-calculator
   mappings:
     - version: 1.0
       description: Save demand change from ws-cal audit details in tables

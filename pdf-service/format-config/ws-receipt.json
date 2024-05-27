@@ -507,7 +507,8 @@
                         "70%",
                         "30%"
                       ],
-                      "body": ["{{#arrears}}[{\"text\":\"{{water_charges}} {{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrears}}"]
+                      "body": [
+                      ["{{#arrears}}[{\"text\":\"{{water_charges}} {{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/arrears}}"]]
                     }
                   }],
                   [

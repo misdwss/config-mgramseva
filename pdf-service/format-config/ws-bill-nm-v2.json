@@ -401,7 +401,7 @@
                           ],
                           [
                             {
-                              "text": "Penalty for {{fromPeriod}}-{{toPeriod}}",
+                              "text": "{{current_penalty}} {{fromPeriod}}-{{toPeriod}}",
                               "border": [
                                 false,
                                 false,

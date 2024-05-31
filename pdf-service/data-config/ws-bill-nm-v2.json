@@ -241,6 +241,18 @@
                 }
               },
               {
+                "variable": "current_penalty",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CURRENT_PENALTY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "net_amount_due_with_penalty",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_NET_AMOUNT_DUE_WITH_PENALTY"

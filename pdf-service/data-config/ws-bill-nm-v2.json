@@ -646,6 +646,12 @@
                 "value": {
                   "path":"$.AggregatedDemands.totalApplicablePenalty"
                 }
+              },
+              {
+                "variable": "billIssueTime",
+                "value": {
+                  "path": "$.Bill[0].billDate"
+                }
               }
             ]
           },
@@ -690,8 +696,13 @@
                 "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
               },
               {
-                "variable":"penaltyDueDate",
+                "variable":"penaltyOldDueDate",
                 "formula":"{{billExpiry}}+{{demandIssuedDate}}",
+                "type":"date"
+              },
+              {
+                "variable":"penaltyDueDate",
+                "formula":"{{billIssueTime}}+864000000",
                 "type":"date"
               }
             ]

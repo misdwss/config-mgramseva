@@ -11,7 +11,13 @@ ServiceMaps:
       isBulk: true
       jsonPath: $.Demands
       timeStampField: $.auditDetail.createdTime
-      
+      customJsonMapping:
+        indexMapping: { "Data": { } }
+        fieldMapping:
+          - inJsonPath: $
+            outJsonPath: $.Data
+
+
   - topic: demand-reindex
     configKey: REINDEX
     indexes:

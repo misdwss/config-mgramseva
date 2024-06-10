@@ -6,17 +6,31 @@ ServiceMaps:
     configKey: INDEX
     indexes:
     - name: demandindex-v1
-      type: demand
+      type: demands
       id: $.id, $.tenantId
       isBulk: true
-      jsonPath: $.Demands
-      timeStampField: $.auditDetail.createdTime
+      jsonPath: $.Demands.*
+      timeStampField: $.auditDetails.createdTime
       customJsonMapping:
         indexMapping: { "Data": { } }
         fieldMapping:
           - inJsonPath: $
             outJsonPath: $.Data
 
+  - topic: update-demand-index
+    configKey: INDEX
+    indexes:
+      - name: demandindex-v1
+        type: demands
+        id: $.id, $.tenantId
+        isBulk: true
+        jsonPath: $.Demands.*
+        timeStampField: $.auditDetails.lastModifiedTime
+        customJsonMapping:
+          indexMapping: { "Data": { } }
+          fieldMapping:
+            - inJsonPath: $
+              outJsonPath: $.Data
 
   - topic: demand-reindex
     configKey: REINDEX

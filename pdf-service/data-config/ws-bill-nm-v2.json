@@ -707,7 +707,7 @@
               },
               {
                 "variable": "totalApplicablePenaltyText",
-                "formula": "{{totalApplicablePenalty}} > 0 ? [{'text':{{penaltyDueDate}}, 'value': {{totalApplicablePenalty}} }] : []"
+                "formula": "{{totalApplicablePenalty}} > 0 ? [{'text': '6373773', 'value': {{totalApplicablePenalty}} }] : []"
               }
             ]
           },

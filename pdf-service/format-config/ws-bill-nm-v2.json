@@ -471,6 +471,28 @@
                   ],
                   [
                     {
+                      "style": "noc-table5",
+                      "margin":[
+                        0,0,0,0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": ["{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/totalApplicablePenaltyText}}"]
+                      }
+                    }
+                  ],
+                  [
+                    {
                       "margin":[
                         0,0,0,0
                       ],
@@ -551,9 +573,6 @@
                               ],
                               "style": "receipt-table-value"
                             }
-                          ],
-                          [
-                            "{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/totalApplicablePenaltyText}}"
                           ],
                           [
                             {

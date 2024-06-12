@@ -706,11 +706,6 @@
                 "type": "date"
               },
               {
-                "variable": "penaltyDueDateInPenaltyText",
-                "formula": "{{totalApplicablePenalty}} > 0 ? {{penaltyDueDate}} : ''"
-
-              },
-              {
                 "variable": "totalApplicablePenaltyText",
                 "formula": "{{totalApplicablePenalty}} > 0 ? [{'text': 'text' , 'value': {{totalApplicablePenalty}} }] : []"
               }

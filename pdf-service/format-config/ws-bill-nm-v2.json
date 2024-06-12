@@ -573,7 +573,7 @@
                               "style": "receipt-table-value"
                             }
                           ],
-                          ["{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDateInPenaltyText}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"],
+                          ["{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"],
                           [
                             {
                               "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",

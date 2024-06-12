@@ -648,6 +648,16 @@
                 }
               },
               {
+              "variable": "totalApplicablePenaltyText",
+              "value": {
+                "path":"$.AggregatedDemands.totalApplicablePenalty"
+              },
+              "type":"function",
+              "format": "var y = [];if( totalApplicablePenalty > 0 ) {y.push({'text': 'Penalty New  '+penaltyDueDate 'value': '₹  ' + totalApplicablePenalty});}"
+
+            },
+
+              {
                 "variable": "billIssueTime",
                 "value": {
                   "path":"$.Bill[0].billDate"

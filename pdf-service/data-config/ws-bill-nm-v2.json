@@ -704,7 +704,7 @@
                 "variable":"penaltyDueDate",
                 "formula":"{{billIssueTime}}+864000000",
                 "type":"date"
-              }, ,
+              },
               {
                 "variable":"totalApplicablePenaltyText",
                 "formula":"{{totalApplicablePenalty}}>0 ? {'text':' '+penaltyDueDate, 'value': '₹ ' +totalApplicablePenalty }:{}",

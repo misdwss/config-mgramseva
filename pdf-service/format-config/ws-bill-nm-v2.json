@@ -553,26 +553,7 @@
                             }
                           ],
                           [
-                            {
-                              "text": "{{penalty_after_due_date}} {{penaltyDueDate}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{totalApplicablePenalty}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
+                            "{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{text}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table2\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value2\"}]{{/totalApplicablePenaltyText}}"
                           ],
                           [
                             {

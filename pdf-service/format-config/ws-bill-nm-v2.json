@@ -471,29 +471,11 @@
                   ],
                   [
                     {
-                      "margin":[
-                        0,0,0,0
-                      ],
-                      "border": [
-                        false,
-                        false,
-                        false,
-                        false
-                      ],
-                      "table": {
-
-                        "widths": [
-                          "70%",
-                          "30%"
-                        ],
-                        "body": ["{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDateInPenaltyText}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"]
-                      }
-                    }
-                  ],
-                  [
-                    {
-                      "margin":[
-                        0,0,0,0
+                      "margin": [
+                        0,
+                        0,
+                        0,
+                        0
                       ],
                       "border": [
                         false,
@@ -572,9 +554,54 @@
                               ],
                               "style": "receipt-table-value"
                             }
-                          ],
-                          ["{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"],
-                          [
+                          ]
+                        ]
+                      }
+                    }
+                  ],
+                  [
+                    {
+                      "margin": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": [
+                          "{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"
+                        ]
+                      }
+                    }
+                    ],
+                  [
+                    {
+                      "margin":[
+                        0,0,0,0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": [
+                    [
                             {
                               "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",
                               "border": [

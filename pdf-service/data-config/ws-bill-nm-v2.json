@@ -708,6 +708,10 @@
               {
                 "variable": "totalApplicablePenaltyText",
                 "formula": "{{totalApplicablePenalty}} > 0 ? [{'text': 'text' , 'value': {{totalApplicablePenalty}} }] : []"
+              },
+              {
+                "variable": "netAmountDueWithPenaltyText",
+                "formula": "{{totalApplicablePenalty}} > 0 ? [{'text': 'text' , 'value': {{netAmountDueWithPenalty}} }] : []"
               }
             ]
           },

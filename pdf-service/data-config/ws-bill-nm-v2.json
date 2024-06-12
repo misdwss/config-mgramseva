@@ -654,7 +654,7 @@
               },
                 "type":"function",
                 "dependencies": ["totalApplicablePenalty", "penaltyDueDate"],
-                "format": "function(totalApplicablePenalty, penaltyDueDate) { var y = [], x = totalApplicablePenalty; if (x > 0) { y.push({'text': 'Penalty New ' + penaltyDueDate, 'value': '₹ ' + x}); } return y; }"
+                "format": "var y = []; if (totalApplicablePenalty > 0) { y.push({'text': 'Penalty New ' + penaltyDueDate, 'value': '₹ ' + totalApplicablePenalty}); } return y;"
               },
               {
                 "variable": "billIssueTime",

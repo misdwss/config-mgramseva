@@ -653,7 +653,7 @@
                 "path":"$.AggregatedDemands.totalApplicablePenalty"
               },
               "type":"function",
-              "format": "var y = [], x= $.AggregatedDemands.totalApplicablePenalty ;if( x > 0 ) {y.push({'text': 'Penalty New  '+penaltyDueDate ,'value': '₹  ' + totalApplicablePenalty});} return y;"
+              "format": "var y = [], x= totalApplicablePenalty ;if( x > 0 ) {y.push({'text': 'Penalty New  '+penaltyDueDate ,'value': '₹  ' + totalApplicablePenalty});} return y;"
 
             },
 

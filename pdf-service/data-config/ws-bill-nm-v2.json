@@ -652,11 +652,10 @@
               "value": {
                 "path":"$.AggregatedDemands.totalApplicablePenalty"
               },
-              "type":"function",
-              "format": "var y = [], x= totalApplicablePenalty ;if( x > 0 ) {y.push({'text': 'Penalty New  '+penaltyDueDate ,'value': '₹  ' + totalApplicablePenalty});} return y;"
-
-            },
-
+                "type":"function",
+                "dependencies": ["totalApplicablePenalty", "penaltyDueDate"],
+                "format": "function(totalApplicablePenalty, penaltyDueDate) { var y = [], x = totalApplicablePenalty; if (x > 0) { y.push({'text': 'Penalty New ' + penaltyDueDate, 'value': '₹ ' + x}); } return y; }"
+              },
               {
                 "variable": "billIssueTime",
                 "value": {

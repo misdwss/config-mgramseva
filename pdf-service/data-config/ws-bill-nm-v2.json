@@ -652,6 +652,9 @@
               "value": {
                 "path":"$.AggregatedDemands.totalApplicablePenalty"
               },
+                "functions": {
+                  "getValue": "function getValue(propertyName) { return $.AggregatedDemands[propertyName]; }"
+                },
                 "type":"function",
                 "format": "var y = [] , x = getValue('totalApplicablePenalty');  if (x > 0) { y.push({'text': 'Penalty New ' , 'value': '₹ ' + x}); } return y;"
               },

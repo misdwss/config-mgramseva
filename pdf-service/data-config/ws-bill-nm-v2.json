@@ -653,8 +653,7 @@
                 "path":"$.AggregatedDemands.totalApplicablePenalty"
               },
                 "type":"function",
-                "dependencies": ["totalApplicablePenalty", "penaltyDueDate"],
-                "format": "var y = []; if (totalApplicablePenalty > 0) { y.push({'text': 'Penalty New ' + penaltyDueDate, 'value': '₹ ' + totalApplicablePenalty}); } return y;"
+                "format": "var y = [] , x= x=arguments ; if (x > 0) { y.push({'text': 'Penalty New ' + penaltyDueDate, 'value': '₹ ' + totalApplicablePenalty}); } return y;"
               },
               {
                 "variable": "billIssueTime",

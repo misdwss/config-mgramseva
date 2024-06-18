@@ -618,51 +618,75 @@
                               ],
                               "style": "receipt-table-value"
                             }
-                          ],
-                          [
-                            {
-                              "text": "{{penalty_after_due_date}} {{penaltyDueDate}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{totalApplicablePenalty}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
-                          [
-                            {
-                              "text": "{{net_amount_due_with_penalty}} {{penaltyDueDate}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table"
-                            },
-                            {
-                              "text": "₹ {{netAmountDueWithPenalty}}",
-                              "border": [
-                                false,
-                                false,
-                                false,
-                                false
-                              ],
-                              "style": "receipt-table-value"
-                            }
-                          ],
+                          ]
+                        ]
+                      }
+                    }
+                  ],
+                  [
+                    {
+                      "margin": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": [
+                          "{{#totalApplicablePenaltyText}}[{\"text\":\"{{penalty_after_due_date}} {{penaltyDueDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/totalApplicablePenaltyText}}"
+                        ]
+                      }
+                    }
+                  ],
+                  [
+                    {
+                      "margin": [
+                        0,0,0,0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": [
+                          "{{#netAmountDueWithPenaltyText}}[{\"text\":\"{{net_amount_due_with_penalty}} {{penaltyDueDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/netAmountDueWithPenaltyText}}"
+                        ]
+                      }
+                    }
+                  ],
+                  [
+                    {
+                      "margin":[
+                        0,0,0,0
+                      ],
+                      "border": [
+                        false,
+                        false,
+                        false,
+                        false
+                      ],
+                      "table": {
+                        "widths": [
+                          "70%",
+                          "30%"
+                        ],
+                        "body": [
                           [
                             {
                               "text": "{{total_due}}",
@@ -703,7 +727,6 @@
                   ]
                 ]
               }
-
             },
               {
                 "border": [

@@ -758,7 +758,7 @@
               },
               {
                 "variable": "latestDemandPenaltyCreatedtimeText",
-                "formula": "{{latestDemandPenaltyCreatedtime}} > 0 ? [{'text': 'text' , 'value': {{netAmountDueWithPenalty}} }] : []"
+                "formula": "{{latestDemandPenaltyCreatedtime}} > 0 ? [{'text': 'text' , 'value': {{latestpenaltyCreatedDate}} }] : []"
               }
             ]
           },

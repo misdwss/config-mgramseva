@@ -7,7 +7,7 @@ ServiceMaps:
       indexes:
         - name: hrmsindex
           type: employees
-          id: $.id, $.tenantId
+          id: $.uuid, $.tenantId
           isBulk: true
           jsonPath: $.Employees.*
           timeStampField: $.auditDetails.createdDate
@@ -22,7 +22,7 @@ ServiceMaps:
       indexes:
         - name: hrmsindex
           type: employees
-          id: $.id, $.tenantId
+          id: $.uuid, $.tenantId
           isBulk: true
           jsonPath: $.Employees.*
           timeStampField: $.auditDetails.lastModifiedDate

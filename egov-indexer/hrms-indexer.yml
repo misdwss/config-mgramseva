@@ -1,0 +1,34 @@
+ServiceMaps:
+  serviceName: HRMS Service
+  version: 1.0.0
+  mappings:
+    - topic: save-hrms-employee-index
+      configKey: INDEX
+      indexes:
+        - name: hrmsindex
+          type: employees
+          id: $.id, $.tenantId
+          isBulk: true
+          jsonPath: $.Employees.*
+          timeStampField: $.auditDetails.createdTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+
+    - topic: update-hrms-employee-index
+      configKey: INDEX
+      indexes:
+        - name: hrmsindex
+          type: employees
+          id: $.id, $.tenantId
+          isBulk: true
+          jsonPath: $.Employees.*
+          timeStampField: $.auditDetails.lastModifiedTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+

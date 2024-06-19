@@ -361,17 +361,7 @@
             ],
             [
               {
-                "text": " ",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              },
-              {
-                "text": " ",
+                "text": "{{latest_demand_generated_date}}",
                 "border": [
                   false,
                   false,
@@ -379,8 +369,32 @@
                   false
                 ],
                 "style": "receipt-table"
+              },
+              {
+                "text": "{{latestDemandGeneratedDate}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "style": "receipt-table-value"
               }
             ]
+          ]
+        }
+      },
+      {
+        "style": "noc-table",
+        "table": {
+          "widths": [
+            "25%",
+            "25%",
+            "25%",
+            "25%"
+          ],
+          "body": [
+            "{{#latestDemandPenaltyCreatedtimeText}}[{\"text\":\"{{latest_penalty_created_date}} \",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{latestpenaltyCreatedDate}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/latestDemandPenaltyCreatedtimeText}}"
           ]
         }
       },

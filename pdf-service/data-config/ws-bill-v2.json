@@ -779,7 +779,7 @@
               },
               {
                 "variable": "latestDemandPenaltyCreatedtimeText",
-                "formula": "{{latestDemandPenaltyCreatedtime}} > 0 ? [{'text': 'text' , 'value': {{latestpenaltyCreatedDate}} }] : []"
+                "formula": "{{latestDemandPenaltyCreatedtime}} > 0 ? [{'text': 'text' , 'value': {{latestDemandPenaltyCreatedtime}} }] : []"
               }
             ]
           },

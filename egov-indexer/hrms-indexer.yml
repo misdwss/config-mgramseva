@@ -10,7 +10,7 @@ ServiceMaps:
           id: $.id, $.tenantId
           isBulk: true
           jsonPath: $.Employees.*
-          timeStampField: $.auditDetails.createdTime
+          timeStampField: $.auditDetails.createdDate
           customJsonMapping:
             indexMapping: { "Data": { } }
             fieldMapping:
@@ -25,7 +25,7 @@ ServiceMaps:
           id: $.id, $.tenantId
           isBulk: true
           jsonPath: $.Employees.*
-          timeStampField: $.auditDetails.lastModifiedTime
+          timeStampField: $.auditDetails.lastModifiedDate
           customJsonMapping:
             indexMapping: { "Data": { } }
             fieldMapping:

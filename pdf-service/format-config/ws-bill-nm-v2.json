@@ -273,28 +273,6 @@
             ],
             [
               {
-                "text": "{{bill_issue_date}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table"
-              },
-              {
-                "text": "{{billIssueDate}}",
-                "border": [
-                  false,
-                  false,
-                  false,
-                  false
-                ],
-                "style": "receipt-table-value"
-              }
-            ],
-            [
-              {
                 "text": "{{latest_demand_generated_date}}",
                 "border": [
                   false,

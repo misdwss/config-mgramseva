@@ -32,3 +32,17 @@ ServiceMaps:
               - inJsonPath: $
                 outJsonPath: $.Data
 
+    - topic: hrms-enrich-legacyindex
+      configKey: LEGACYINDEX
+      indexes:
+        - name: hrmsindex
+          type: employees
+          id: $.uuid, $.tenantId
+          isBulk: true
+          jsonPath: $.Employees.*
+          timeStampField: $.auditDetails.lastModifiedDate
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data

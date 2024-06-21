@@ -45,7 +45,7 @@ ServiceMaps:
   - topic: demand-enrich-legacyindex
     configKey: LEGACYINDEX
     indexes:
-      - name: demand-enriched-index
+      - name: demandindex-v1
         type: demand
         id: $.id, $.tenantId
         isBulk: true

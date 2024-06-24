@@ -105,19 +105,21 @@ ServiceMaps:
             - inJsonPath: $.Demands
               outJsonPath: $.Data.demands
           - path: http://ifix-department-entity-service.mgramseva:8080/ifix-department-entity/departmentEntity/v1/_search
-            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "pb","getAncestry": true}}
+            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "abianakhurd","tenantId": "pb","getAncestry": true}}
             uriResponseMapping:
             - inJsonPath: $.departmentEntity[0].name
-              outJsonPath: $.Data.hierarchyMap.ZONE
+              outJsonPath: $.Data.hierarchyMap.DEPARTMENT
             - inJsonPath: $.departmentEntity[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.CIRCLE
+              outJsonPath: $.Data.hierarchyMap.ZONE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.DIVISION
+              outJsonPath: $.Data.hierarchyMap.CIRCLE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
+              outJsonPath: $.Data.hierarchyMap.DIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SECTION
+              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].name
+              outJsonPath: $.Data.hierarchyMap.SECTION
+            - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].children[0].name
               outJsonPath: $.Data.hierarchyMap.GPWSC
      
 
@@ -218,19 +220,21 @@ ServiceMaps:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
           - path: http://ifix-department-entity-service.mgramseva:8080/ifix-department-entity/departmentEntity/v1/_search
-            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "pb","getAncestry": true}}
+            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "abianakhurd","tenantId": "pb","getAncestry": true}}
             uriResponseMapping:
             - inJsonPath: $.departmentEntity[0].name
-              outJsonPath: $.Data.hierarchyMap.ZONE
+              outJsonPath: $.Data.hierarchyMap.DEPARTMENT
             - inJsonPath: $.departmentEntity[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.CIRCLE
+              outJsonPath: $.Data.hierarchyMap.ZONE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.DIVISION
+              outJsonPath: $.Data.hierarchyMap.CIRCLE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
+              outJsonPath: $.Data.hierarchyMap.DIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SECTION
+              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].name
+              outJsonPath: $.Data.hierarchyMap.SECTION
+            - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].children[0].name
               outJsonPath: $.Data.hierarchyMap.GPWSC
               
   - topic: update-ws-workflow
@@ -330,19 +334,21 @@ ServiceMaps:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
           - path: http://ifix-department-entity-service.mgramseva:8080/ifix-department-entity/departmentEntity/v1/_search
-            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "pb","getAncestry": true}}
+            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "abianakhurd","tenantId": "pb","getAncestry": true}}
             uriResponseMapping:
             - inJsonPath: $.departmentEntity[0].name
-              outJsonPath: $.Data.hierarchyMap.ZONE
+              outJsonPath: $.Data.hierarchyMap.DEPARTMENT
             - inJsonPath: $.departmentEntity[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.CIRCLE
+              outJsonPath: $.Data.hierarchyMap.ZONE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.DIVISION
+              outJsonPath: $.Data.hierarchyMap.CIRCLE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
+              outJsonPath: $.Data.hierarchyMap.DIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SECTION
+              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].name
+              outJsonPath: $.Data.hierarchyMap.SECTION
+            - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].children[0].name
               outJsonPath: $.Data.hierarchyMap.GPWSC
 
   - topic: ws-connection-legacyIndex
@@ -437,17 +443,19 @@ ServiceMaps:
             - inJsonPath: $.ProcessInstances
               outJsonPath: $.Data.history
           - path: http://ifix-department-entity-service.mgramseva:8080/ifix-department-entity/departmentEntity/v1/_search
-            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "pb","getAncestry": true}}
+            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "abianakhurd","tenantId": "pb","getAncestry": true}}
             uriResponseMapping:
             - inJsonPath: $.departmentEntity[0].name
-              outJsonPath: $.Data.hierarchyMap.ZONE
+              outJsonPath: $.Data.hierarchyMap.DEPARTMENT
             - inJsonPath: $.departmentEntity[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.CIRCLE
+              outJsonPath: $.Data.hierarchyMap.ZONE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.DIVISION
+              outJsonPath: $.Data.hierarchyMap.CIRCLE
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
+              outJsonPath: $.Data.hierarchyMap.DIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].name
-              outJsonPath: $.Data.hierarchyMap.SECTION
+              outJsonPath: $.Data.hierarchyMap.SUBDIVISION
             - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].name
+              outJsonPath: $.Data.hierarchyMap.SECTION
+            - inJsonPath: $.departmentEntity[0].children[0].children[0].children[0].children[0].children[0].children[0].name
               outJsonPath: $.Data.hierarchyMap.GPWSC

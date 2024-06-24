@@ -105,7 +105,7 @@ ServiceMaps:
             - inJsonPath: $.Demands
               outJsonPath: $.Data.demands
           - path: http://ifix-department-entity-service.mgramseva:8080/ifix-department-entity/departmentEntity/v1/_search
-            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "{{$.tenantId}}","getAncestry": true}}
+            apiRequest: {"requestHeader": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}},"criteria": {"name": "{{$.tenantId.split('.')[1]}}","tenantId": "pb","getAncestry": true}}
             uriResponseMapping:
             - inJsonPath: $.departmentEntity[0].name
               outJsonPath: $.Data.hierarchyMap.ZONE

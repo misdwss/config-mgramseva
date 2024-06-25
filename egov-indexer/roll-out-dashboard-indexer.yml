@@ -34,7 +34,7 @@ ServiceMaps:
           timeStampField: $.createdTime
           jsonPath: $.RollOutDashboard.*
           customJsonMapping:
-            indexMapping: {"Data":{}}
+            indexMapping: { "Data": { } }
             fieldMapping:
               - inJsonPath: $
                 outJsonPath: $.Data

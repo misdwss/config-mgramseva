@@ -8,7 +8,7 @@ ServiceMaps:
         - name: rolloutdashboardindex-v1
           type: rolloutdashboard
           id: $.id, $.tenantId
-          jsonPath: $.RollOutDashboard
+          jsonPath: $
           timeStampField: $.createdTime
           customJsonMapping:
             indexMapping: { "Data": { } }
@@ -23,7 +23,7 @@ ServiceMaps:
           type: rolloutdashboard
           id: $.id, $.tenantId
           timeStampField: $.createdTime
-          jsonPath: $.RollOutDashboard.*
+          jsonPath: $
           customJsonMapping:
             indexMapping: {"Data":{}}
             fieldMapping:

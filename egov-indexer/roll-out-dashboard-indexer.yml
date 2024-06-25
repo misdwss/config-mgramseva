@@ -16,6 +16,15 @@ ServiceMaps:
               - inJsonPath: $
                 outJsonPath: $.Data
 
+    - topic: rolloutdashboard-reindex
+      configKey: REINDEX
+      indexes:
+        - name: rolloutdashboardindex-v1
+          type: rolloutdashboard
+          id: $.id, $.tenantid
+          jsonPath: $.hits
+          timeStampField: $.createdTime
+
     - topic: rolloutdashboard-enrich-legacyindex
       configKey: LEGACYINDEX
       indexes:

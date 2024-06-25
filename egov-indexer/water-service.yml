@@ -9,7 +9,6 @@ ServiceMaps:
         type: general
         id: $.id,$.tenantId
         jsonPath: $.WaterConnection
-        isBulk: false
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
           indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"hierarchyMap":{"DEPARTMENT": "","ZONE": "","CIRCLE": "","DIVISION": "","SUBDIVISION": "","SECTION": "","GPWSC": ""},"tenantData":{},"payments":{}}}
@@ -86,18 +85,18 @@ ServiceMaps:
             outJsonPath: $.Data.paymentType
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp
-        mdmsMapping:
-        - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
-          moduleName: tenant
-          masterName: tenants
-          tenantId: pb
-          filter: "[?(@.code == $tenant)]"
-          filterMapping:
-          - variable: $tenant
-            valueJsonpath: $.tenantId
-          uriResponseMapping:
-          - inJsonPath: $.MdmsRes.tenant.tenants
-            outJsonPath: $.Data.tenantData
+          mdmsMapping:
+          - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+            moduleName: tenant
+            masterName: tenants
+            tenantId: pb
+            filter: "[?(@.code == $tenant)]"
+            filterMapping:
+            - variable: $tenant
+              valueJsonpath: $.tenantId
+            uriResponseMapping:
+            - inJsonPath: $.MdmsRes.tenant.tenants
+              outJsonPath: $.Data.tenantData
           externalUriMapping:
           - path: http://egov-workflow-v2.mgramseva:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.applicationNo,history=true,tenantId=$.tenantId
@@ -222,18 +221,18 @@ ServiceMaps:
             outJsonPath: $.Data.paymentType
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp  
-        mdmsMapping:
-        - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
-          moduleName: tenant
-          masterName: tenants
-          tenantId: pb
-          filter: "[?(@.code == $tenant)]"
-          filterMapping:
-          - variable: $tenant
-            valueJsonpath: $.tenantId
-          uriResponseMapping:
-          - inJsonPath: $.MdmsRes.tenant.tenants
-            outJsonPath: $.Data.tenantData
+          mdmsMapping:
+          - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+            moduleName: tenant
+            masterName: tenants
+            tenantId: pb
+            filter: "[?(@.code == $tenant)]"
+            filterMapping:
+            - variable: $tenant
+              valueJsonpath: $.tenantId
+            uriResponseMapping:
+            - inJsonPath: $.MdmsRes.tenant.tenants
+              outJsonPath: $.Data.tenantData
           externalUriMapping:
           - path: http://egov-workflow-v2.mgramseva:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.applicationNo,history=true,tenantId=$.tenantId
@@ -351,18 +350,18 @@ ServiceMaps:
             outJsonPath: $.Data.paymentType
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp  
-        mdmsMapping:
-        - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
-          moduleName: tenant
-          masterName: tenants
-          tenantId: pb
-          filter: "[?(@.code == $tenant)]"
-          filterMapping:
-          - variable: $tenant
-            valueJsonpath: $.tenantId
-          uriResponseMapping:
-          - inJsonPath: $.MdmsRes.tenant.tenants
-            outJsonPath: $.Data.tenantData
+          mdmsMapping:
+          - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+            moduleName: tenant
+            masterName: tenants
+            tenantId: pb
+            filter: "[?(@.code == $tenant)]"
+            filterMapping:
+            - variable: $tenant
+              valueJsonpath: $.tenantId
+            uriResponseMapping:
+            - inJsonPath: $.MdmsRes.tenant.tenants
+              outJsonPath: $.Data.tenantData
           externalUriMapping:
           - path: http://egov-workflow-v2.mgramseva:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.applicationNo,history=true,tenantId=$.tenantId
@@ -481,18 +480,18 @@ ServiceMaps:
             outJsonPath: $.Data.paymentType
           - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp  
-        mdmsMapping:
-        - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
-          moduleName: tenant
-          masterName: tenants
-          tenantId: pb
-          filter: "[?(@.code == $tenant)]"
-          filterMapping:
-          - variable: $tenant
-            valueJsonpath: $.tenantId
-          uriResponseMapping:
-          - inJsonPath: $.MdmsRes.tenant.tenants
-            outJsonPath: $.Data.tenantData
+          mdmsMapping:
+          - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+            moduleName: tenant
+            masterName: tenants
+            tenantId: pb
+            filter: "[?(@.code == $tenant)]"
+            filterMapping:
+            - variable: $tenant
+              valueJsonpath: $.tenantId
+            uriResponseMapping:
+            - inJsonPath: $.MdmsRes.tenant.tenants
+              outJsonPath: $.Data.tenantData
           externalUriMapping:
           - path: http://egov-workflow-v2.mgramseva:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.applicationNo,history=true,tenantId=$.tenantId

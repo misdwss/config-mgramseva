@@ -1,0 +1,31 @@
+ServiceMaps:
+  serviceName: RollOutDashboard Service
+  version: 1.0.0
+  mappings:
+    - topic: rollout-dashboard-index
+      configKey: INDEX
+      indexes:
+        - name: rolloutdashboardindex-v1
+          type: rolloutdashboard
+          id: $.id, $.tenantId
+          jsonPath: $.RollOutDashboard
+          timeStampField: $.createdTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+
+    - topic: rolloutdashboard-enrich-legacyindex
+      configKey: LEGACYINDEX
+      indexes:
+        - name: rolloutdashboard-enriched-index
+          type: rolloutdashboard
+          id: $.id, $.tenantid
+          timeStampField: $.createdTime
+          jsonPath: $.RollOutDashboard.*
+          customJsonMapping:
+            indexMapping: {"Data":{}}
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data

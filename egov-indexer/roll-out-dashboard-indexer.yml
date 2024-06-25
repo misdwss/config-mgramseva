@@ -1,5 +1,5 @@
 ServiceMaps:
-  serviceName: RollOutDashboard Service
+  serviceName: rollout-dashboard-cronjob
   version: 1.0.0
   mappings:
     - topic: rollout-dashboard-index

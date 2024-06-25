@@ -1,0 +1,31 @@
+ServiceMaps:
+  serviceName: mdms-v2
+  version: 1.0.0
+  mappings:
+    - topic: create-tenant-index
+      configKey: INDEX
+      indexes:
+        - name: tenant-index-v1
+          type: tenant
+          id: $.id, $.uniqueIdentifier
+          jsonPath: $
+          timeStampField: $.auditDetails.createdTime
+          customJsonMapping:
+            indexMapping: { "Data": { } }
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data
+
+    - topic: update-tenant-index
+      configKey: LEGACYINDEX
+      indexes:
+        - name: tenant-index-v1
+          type: tenant
+          id: $.id, $.uniqueIdentifier
+          timeStampField: $.auditDetails.createdTime
+          jsonPath: $
+          customJsonMapping:
+            indexMapping: {"Data":{}}
+            fieldMapping:
+              - inJsonPath: $
+                outJsonPath: $.Data

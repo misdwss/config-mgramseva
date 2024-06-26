@@ -17,7 +17,7 @@ ServiceMaps:
                 outJsonPath: $.Data
 
     - topic: update-tenant-index
-      configKey: LEGACYINDEX
+      configKey: INDEX
       indexes:
         - name: tenant-index-v1
           type: tenant

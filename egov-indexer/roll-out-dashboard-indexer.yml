@@ -7,7 +7,7 @@ ServiceMaps:
       indexes:
         - name: rolloutdashboardindex-v1
           type: rolloutdashboard
-          id: $.id, $.tenantId
+          id: $.id, $.tenantid
           jsonPath: $.RollOutDashboard
           timeStampField: $.createdTime
           customJsonMapping:
@@ -21,7 +21,7 @@ ServiceMaps:
       indexes:
         - name: rolloutdashboard-enriched-index
           type: rolloutdashboard
-          id: $.id, $.tenantId
+          id: $.id, $.tenantid
           timeStampField: $.createdTime
           jsonPath: $.RollOutDashboard.*
           customJsonMapping:

@@ -12,10 +12,54 @@ ServiceMaps:
       jsonPath: $.Demands.*
       timeStampField: $.auditDetails.createdTime
       customJsonMapping:
-        indexMapping: { "Data": { } }
+        indexMapping: { "Data": { "taxPeriodFrom": "", "businessService": "", "minimumAmountPayable": "", "taxPeriodTo": "", "fixedBillExpiryDate": null, "additionalDetails": null, "demandDetails": [], "consumerType": "", "auditDetails": {}, "tenantId": "", "consumerCode": "", "id": "", "billExpiryTime": "", "isPaymentCompleted": "", "status": "", "@timestamp": "", "tenantData": {} }}
         fieldMapping:
-          - inJsonPath: $
-            outJsonPath: $.Data
+          - inJsonPath: $.taxPeriodFrom
+            outJsonPath: $.Data.taxPeriodFrom
+          - inJsonPath: $.businessService
+            outJsonPath: $.Data.businessService
+          - inJsonPath: $.minimumAmountPayable
+            outJsonPath: $.Data.minimumAmountPayable
+          - inJsonPath: $.taxPeriodTo
+            outJsonPath: $.Data.taxPeriodTo
+          - inJsonPath: $.fixedBillExpiryDate
+            outJsonPath: $.Data.fixedBillExpiryDate
+          - inJsonPath: $.additionalDetails
+            outJsonPath: $.Data.additionalDetails
+          - inJsonPath: $.payer.correspondenceCity
+            outJsonPath: $.Data.payer.correspondenceCity
+          - inJsonPath: $.demandDetails
+            outJsonPath: $.Data.demandDetails
+          - inJsonPath: $.consumerType
+            outJsonPath: $.Data.consumerType
+          - inJsonPath: $.auditDetails
+            outJsonPath: $.Data.auditDetails
+          - inJsonPath: $.tenantId
+            outJsonPath: $.Data.tenantId
+          - inJsonPath: $.consumerCode
+            outJsonPath: $.Data.consumerCode
+          - inJsonPath: $.id
+            outJsonPath: $.Data.id
+          - inJsonPath: $.billExpiryTime
+            outJsonPath: $.Data.billExpiryTime
+          - inJsonPath: $.isPaymentCompleted
+            outJsonPath: $.Data.isPaymentCompleted
+          - inJsonPath: $.status
+            outJsonPath: $.Data.status
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp
+        mdmsMapping:
+          - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+            moduleName: tenant
+            masterName: tenants
+            tenantId: pb
+            filter: "[?(@.code == $tenant)]"
+            filterMapping:
+              - variable: $tenant
+                valueJsonpath: $.tenantId
+            uriResponseMapping:
+              - inJsonPath: $.MdmsRes.tenant.tenants
+                outJsonPath: $.Data.tenantData
 
   - topic: update-demand-index
     configKey: INDEX
@@ -27,20 +71,55 @@ ServiceMaps:
         jsonPath: $.Demands.*
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: { "Data": { } }
+          indexMapping: { "Data": { "taxPeriodFrom": "", "businessService": "", "minimumAmountPayable": "", "taxPeriodTo": "", "fixedBillExpiryDate": null, "additionalDetails": null, "demandDetails": [ ], "consumerType": "", "auditDetails": { }, "tenantId": "", "consumerCode": "", "id": "", "billExpiryTime": "", "isPaymentCompleted": "", "status": "", "@timestamp": "", "tenantData": { } } }
           fieldMapping:
-            - inJsonPath: $
-              outJsonPath: $.Data
+            - inJsonPath: $.taxPeriodFrom
+              outJsonPath: $.Data.taxPeriodFrom
+            - inJsonPath: $.businessService
+              outJsonPath: $.Data.businessService
+            - inJsonPath: $.minimumAmountPayable
+              outJsonPath: $.Data.minimumAmountPayable
+            - inJsonPath: $.taxPeriodTo
+              outJsonPath: $.Data.taxPeriodTo
+            - inJsonPath: $.fixedBillExpiryDate
+              outJsonPath: $.Data.fixedBillExpiryDate
+            - inJsonPath: $.additionalDetails
+              outJsonPath: $.Data.additionalDetails
+            - inJsonPath: $.payer.correspondenceCity
+              outJsonPath: $.Data.payer.correspondenceCity
+            - inJsonPath: $.demandDetails
+              outJsonPath: $.Data.demandDetails
+            - inJsonPath: $.consumerType
+              outJsonPath: $.Data.consumerType
+            - inJsonPath: $.auditDetails
+              outJsonPath: $.Data.auditDetails
+            - inJsonPath: $.tenantId
+              outJsonPath: $.Data.tenantId
+            - inJsonPath: $.consumerCode
+              outJsonPath: $.Data.consumerCode
+            - inJsonPath: $.id
+              outJsonPath: $.Data.id
+            - inJsonPath: $.billExpiryTime
+              outJsonPath: $.Data.billExpiryTime
+            - inJsonPath: $.isPaymentCompleted
+              outJsonPath: $.Data.isPaymentCompleted
+            - inJsonPath: $.status
+              outJsonPath: $.Data.status
+            - inJsonPath: $.@timestamp
+              outJsonPath: $.Data.@timestamp
+          mdmsMapping:
+            - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+              moduleName: tenant
+              masterName: tenants
+              tenantId: pb
+              filter: "[?(@.code == $tenant)]"
+              filterMapping:
+                - variable: $tenant
+                  valueJsonpath: $.tenantId
+              uriResponseMapping:
+                - inJsonPath: $.MdmsRes.tenant.tenants
+                  outJsonPath: $.Data.tenantData
 
-  - topic: demand-reindex
-    configKey: REINDEX
-    indexes:
-    - name: demandindex-v1
-      type: demand
-      id: $.id, $.tenantId
-      isBulk: true
-      jsonPath: $.hits
-      timeStampField: $.auditDetail.createdTime
 
   - topic: demand-enrich-legacyindex
     configKey: LEGACYINDEX
@@ -52,7 +131,51 @@ ServiceMaps:
         timeStampField: $.auditDetails.createdTime
         jsonPath: $.Demands.*
         customJsonMapping:
-          indexMapping: {"Data":{}}
+          indexMapping: { "Data": { "taxPeriodFrom": "", "businessService": "", "minimumAmountPayable": "", "taxPeriodTo": "", "fixedBillExpiryDate": null, "additionalDetails": null, "demandDetails": [ ], "consumerType": "", "auditDetails": { }, "tenantId": "", "consumerCode": "", "id": "", "billExpiryTime": "", "isPaymentCompleted": "", "status": "", "@timestamp": "", "tenantData": { } } }
           fieldMapping:
-            - inJsonPath: $
-              outJsonPath: $.Data
+            - inJsonPath: $.taxPeriodFrom
+              outJsonPath: $.Data.taxPeriodFrom
+            - inJsonPath: $.businessService
+              outJsonPath: $.Data.businessService
+            - inJsonPath: $.minimumAmountPayable
+              outJsonPath: $.Data.minimumAmountPayable
+            - inJsonPath: $.taxPeriodTo
+              outJsonPath: $.Data.taxPeriodTo
+            - inJsonPath: $.fixedBillExpiryDate
+              outJsonPath: $.Data.fixedBillExpiryDate
+            - inJsonPath: $.additionalDetails
+              outJsonPath: $.Data.additionalDetails
+            - inJsonPath: $.payer.correspondenceCity
+              outJsonPath: $.Data.payer.correspondenceCity
+            - inJsonPath: $.demandDetails
+              outJsonPath: $.Data.demandDetails
+            - inJsonPath: $.consumerType
+              outJsonPath: $.Data.consumerType
+            - inJsonPath: $.auditDetails
+              outJsonPath: $.Data.auditDetails
+            - inJsonPath: $.tenantId
+              outJsonPath: $.Data.tenantId
+            - inJsonPath: $.consumerCode
+              outJsonPath: $.Data.consumerCode
+            - inJsonPath: $.id
+              outJsonPath: $.Data.id
+            - inJsonPath: $.billExpiryTime
+              outJsonPath: $.Data.billExpiryTime
+            - inJsonPath: $.isPaymentCompleted
+              outJsonPath: $.Data.isPaymentCompleted
+            - inJsonPath: $.status
+              outJsonPath: $.Data.status
+            - inJsonPath: $.@timestamp
+              outJsonPath: $.Data.@timestamp
+          mdmsMapping:
+            - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+              moduleName: tenant
+              masterName: tenants
+              tenantId: pb
+              filter: "[?(@.code == $tenant)]"
+              filterMapping:
+                - variable: $tenant
+                  valueJsonpath: $.tenantId
+              uriResponseMapping:
+                - inJsonPath: $.MdmsRes.tenant.tenants
+                  outJsonPath: $.Data.tenantData

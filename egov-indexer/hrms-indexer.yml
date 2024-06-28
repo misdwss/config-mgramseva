@@ -12,10 +12,60 @@ ServiceMaps:
           jsonPath: $.Employees.*
           timeStampField: $.auditDetails.createdDate
           customJsonMapping:
-            indexMapping: { "Data": { } }
+            indexMapping: { "Data": { "serviceHistory": [], "code": "", "assignments": [], "education": [], "documents": [], "isActive": "", "uuid": "", "employeeStatus": "", "deactivationDetails": [], "reactivationDetails": [ ], "employeeType": "", "tests": [], "auditDetails": {}, "dateOfAppointment": "", "tenantId": "", "id": "", "user": {}, "reActivateEmployee" : "", "jurisdictions" : [], "@timestamp":"timestamp", "tenantData":{}} }
             fieldMapping:
-              - inJsonPath: $
-                outJsonPath: $.Data
+              - inJsonPath: $.serviceHistory
+                outJsonPath: $.Data.serviceHistory
+              - inJsonPath: $.code
+                outJsonPath: $.Data.code
+              - inJsonPath: $.assignments
+                outJsonPath: $.Data.assignments
+              - inJsonPath: $.education
+                outJsonPath: $.Data.education
+              - inJsonPath: $.documents
+                outJsonPath: $.Data.documents
+              - inJsonPath: $.isActive
+                outJsonPath: $.Data.isActive
+              - inJsonPath: $.uuid
+                outJsonPath: $.Data.uuid
+              - inJsonPath: $.employeeStatus
+                outJsonPath: $.Data.employeeStatus
+              - inJsonPath: $.deactivationDetails
+                outJsonPath: $.Data.deactivationDetails
+              - inJsonPath: $.reactivationDetails
+                outJsonPath: $.Data.reactivationDetails
+              - inJsonPath: $.employeeType
+                outJsonPath: $.Data.employeeType
+              - inJsonPath: $.tests
+                outJsonPath: $.Data.tests
+              - inJsonPath: $.auditDetails
+                outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.dateOfAppointment
+                outJsonPath: $.Data.dateOfAppointment
+              - inJsonPath: $.tenantId
+                outJsonPath: $.Data.tenantId
+              - inJsonPath: $.id
+                outJsonPath: $.Data.id
+              - inJsonPath: $.user
+                outJsonPath: $.Data.user
+              - inJsonPath: $.reActivateEmployee
+                outJsonPath: $.Data.reActivateEmployee
+              - inJsonPath: $.jurisdictions
+                outJsonPath: $.Data.jurisdictions
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
+            mdmsMapping:
+            - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+              moduleName: tenant
+              masterName: tenants
+              tenantId: pb
+              filter: "[?(@.code == $tenant)]"
+              filterMapping:
+                - variable: $tenant
+                  valueJsonpath: $.tenantId
+              uriResponseMapping:
+                - inJsonPath: $.MdmsRes.tenant.tenants
+                  outJsonPath: $.Data.tenantData
 
     - topic: update-hrms-employee-index
       configKey: INDEX
@@ -27,8 +77,57 @@ ServiceMaps:
           jsonPath: $.Employees.*
           timeStampField: $.auditDetails.lastModifiedDate
           customJsonMapping:
-            indexMapping: { "Data": { } }
+            indexMapping: { "Data": { "serviceHistory": [ ], "code": "", "assignments": [ ], "education": [ ], "documents": [ ], "isActive": "", "uuid": "", "employeeStatus": "", "deactivationDetails": [ ], "reactivationDetails": [ ], "employeeType": "", "tests": [ ], "auditDetails": { }, "dateOfAppointment": "", "tenantId": "", "id": "", "user": {}, "reActivateEmployee": "", "jurisdictions": [], "@timestamp": "timestamp", "tenantData": {} } }
             fieldMapping:
-              - inJsonPath: $
-                outJsonPath: $.Data
-
+              - inJsonPath: $.serviceHistory
+                outJsonPath: $.Data.serviceHistory
+              - inJsonPath: $.code
+                outJsonPath: $.Data.code
+              - inJsonPath: $.assignments
+                outJsonPath: $.Data.assignments
+              - inJsonPath: $.education
+                outJsonPath: $.Data.education
+              - inJsonPath: $.documents
+                outJsonPath: $.Data.documents
+              - inJsonPath: $.isActive
+                outJsonPath: $.Data.isActive
+              - inJsonPath: $.uuid
+                outJsonPath: $.Data.uuid
+              - inJsonPath: $.employeeStatus
+                outJsonPath: $.Data.employeeStatus
+              - inJsonPath: $.deactivationDetails
+                outJsonPath: $.Data.deactivationDetails
+              - inJsonPath: $.reactivationDetails
+                outJsonPath: $.Data.reactivationDetails
+              - inJsonPath: $.employeeType
+                outJsonPath: $.Data.employeeType
+              - inJsonPath: $.tests
+                outJsonPath: $.Data.tests
+              - inJsonPath: $.auditDetails
+                outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.dateOfAppointment
+                outJsonPath: $.Data.dateOfAppointment
+              - inJsonPath: $.tenantId
+                outJsonPath: $.Data.tenantId
+              - inJsonPath: $.id
+                outJsonPath: $.Data.id
+              - inJsonPath: $.user
+                outJsonPath: $.Data.user
+              - inJsonPath: $.reActivateEmployee
+                outJsonPath: $.Data.reActivateEmployee
+              - inJsonPath: $.jurisdictions
+                outJsonPath: $.Data.jurisdictions
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
+            mdmsMapping:
+              - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+                moduleName: tenant
+                masterName: tenants
+                tenantId: pb
+                filter: "[?(@.code == $tenant)]"
+                filterMapping:
+                  - variable: $tenant
+                    valueJsonpath: $.tenantId
+                uriResponseMapping:
+                  - inJsonPath: $.MdmsRes.tenant.tenants
+                    outJsonPath: $.Data.tenantData

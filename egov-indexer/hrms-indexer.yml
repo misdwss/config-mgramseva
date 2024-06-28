@@ -77,7 +77,7 @@ ServiceMaps:
           jsonPath: $.Employees.*
           timeStampField: $.auditDetails.lastModifiedDate
           customJsonMapping:
-            indexMapping: { "Data": { "serviceHistory": [ ], "code": "", "assignments": [ ], "education": [ ], "documents": [ ], "isActive": "", "uuid": "", "employeeStatus": "", "deactivationDetails": [ ], "reactivationDetails": [ ], "employeeType": "", "tests": [ ], "auditDetails": { }, "dateOfAppointment": "", "tenantId": "", "id": "", "user": { }, "reActivateEmployee": "", "jurisdictions": [ ], "@timestamp": "timestamp", "tenantData": { } } }
+            indexMapping: { "Data": { "serviceHistory": [ ], "code": "", "assignments": [ ], "education": [ ], "documents": [ ], "isActive": "", "uuid": "", "employeeStatus": "", "deactivationDetails": [ ], "reactivationDetails": [ ], "employeeType": "", "tests": [ ], "auditDetails": { }, "dateOfAppointment": "", "tenantId": "", "id": "", "user": {}, "reActivateEmployee": "", "jurisdictions": [], "@timestamp": "timestamp", "tenantData": {} } }
             fieldMapping:
               - inJsonPath: $.serviceHistory
                 outJsonPath: $.Data.serviceHistory

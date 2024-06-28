@@ -7,7 +7,7 @@ ServiceMaps:
       indexes:
         - name: tenant-index-v1
           type: tenant
-          id: $.id, $.uniqueIdentifier
+          id: $.uniqueIdentifier
           jsonPath: $
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
@@ -21,7 +21,7 @@ ServiceMaps:
       indexes:
         - name: tenant-index-v1
           type: tenant
-          id: $.id, $.uniqueIdentifier
+          id: $.uniqueIdentifier
           timeStampField: $.auditDetails.createdTime
           jsonPath: $
           customJsonMapping:

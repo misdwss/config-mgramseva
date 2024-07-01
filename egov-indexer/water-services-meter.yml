@@ -10,7 +10,7 @@ ServiceMaps:
         id: $.id,$.connectionNo
         jsonPath: $.meterReadings
         customJsonMapping:
-          indexMapping: {"Data":{"connectionNo":"","meterStatus":"","currentReadingDate":"","currentReading":"","lastReading":"","billingPeriod":"","lastReadingDate":""}}
+          indexMapping: {"Data":{"connectionNo":"","meterStatus":"","currentReadingDate":"","currentReading":"","lastReading":"","billingPeriod":"","lastReadingDate":"","tenantData":{}}}
           fieldMapping:
           - inJsonPath: $.connectionNo
             outJsonPath: $.Data.connectionNo

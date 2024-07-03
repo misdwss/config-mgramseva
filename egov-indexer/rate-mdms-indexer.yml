@@ -1,0 +1,55 @@
+ServiceMaps:
+  serviceName: mdms-v2
+  version: 1.0.0
+  mappings:
+    - topic: create-rate-index
+      configKey: INDEX
+      indexes:
+        - name: rate-index-v1
+          type: Rate
+          id: $.tenantId, $.uniqueIdentifier 
+          jsonPath: $
+          timeStampField: $.auditDetails.createdTime
+          customJsonMapping:
+            indexMapping: { "Data":{"rate":{},"tenantData":{} }
+            fieldMapping:
+            - inJsonPath: $
+              outJsonPath: $.Data.rate
+            mdmsMapping:
+            - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+              moduleName: tenant
+              masterName: tenants
+              tenantId: pb
+              filter: "[?(@.code == $tenant)]"
+              filterMapping:
+              - variable: $tenant
+                valueJsonpath: $.tenantId
+              uriResponseMapping:
+              - inJsonPath: $.MdmsRes.tenant.tenants
+                outJsonPath: $.Data.tenantData      
+
+    - topic: update-rate-index
+      configKey: INDEX
+      indexes:
+        - name: rate-index-v1
+          type: Rate
+          id: $.tenantId, $.uniqueIdentifier 
+          timeStampField: $.auditDetails.createdTime
+          jsonPath: $
+          customJsonMapping:
+            indexMapping: {"Data":{"rate":{},"tenantData":{}}
+            fieldMapping:
+            - inJsonPath: $
+              outJsonPath: $.Data.rate
+            mdmsMapping:
+            - path: http://mdms-v2.mgramseva:8080/mdms-v2/v1/_search
+              moduleName: tenant
+              masterName: tenants
+              tenantId: pb
+              filter: "[?(@.code == $tenant)]"
+              filterMapping:
+              - variable: $tenant
+                valueJsonpath: $.tenantId
+              uriResponseMapping:
+              - inJsonPath: $.MdmsRes.tenant.tenants
+                outJsonPath: $.Data.tenantData      

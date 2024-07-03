@@ -11,7 +11,7 @@ ServiceMaps:
           jsonPath: $
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"rate":{},"tenantData":{} }
+            indexMapping: {"Data":{"rate":{},"tenantData":{}}}
             fieldMapping:
             - inJsonPath: $
               outJsonPath: $.Data.rate
@@ -37,7 +37,7 @@ ServiceMaps:
           timeStampField: $.auditDetails.createdTime
           jsonPath: $
           customJsonMapping:
-            indexMapping: {"Data":{"rate":{},"tenantData":{}}
+            indexMapping: {"Data":{"rate":{},"tenantData":{}}}
             fieldMapping:
             - inJsonPath: $
               outJsonPath: $.Data.rate

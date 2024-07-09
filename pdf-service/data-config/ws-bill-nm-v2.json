@@ -169,6 +169,30 @@
                 }
               },
               {
+                "variable": "latest_demand_generated_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_LATEST_DEMAND_GENERATED_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
+                "variable": "latest_penalty_created_date",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_LATEST_PENALTY_CREATED_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "water_charges",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_CHARGES"
@@ -650,9 +674,28 @@
               {
                 "variable": "billIssueTime",
                 "value": {
-                  "path": "$.Bill[0].billDate"
+                  "path":"$.Bill[0].billDate"
                 }
-              }
+              },
+              {
+                "variable": "latestDemandGeneratedDate",
+                "value": {
+                  "path":"$.AggregatedDemands.latestDemandCreatedTime"
+                },
+                "type": "date"
+              },
+              {
+                "variable": "latestDemandPenaltyCreatedtime",
+                "value": {
+                  "path":"$.AggregatedDemands.latestDemandPenaltyCreatedtime"
+                }
+              },{
+              "variable": "latestpenaltyCreatedDate",
+              "value": {
+                "path":"$.AggregatedDemands.latestDemandPenaltyCreatedtime"
+              },
+              "type": "date"
+            }
             ]
           },
           {
@@ -696,14 +739,14 @@
                 "formula":"{{netAmountDue}}+{{totalApplicablePenalty}}"
               },
               {
-                "variable":"penaltyOldDueDate",
+                "variable":"penaltyDueDateOld",
                 "formula":"{{billExpiry}}+{{demandIssuedDate}}",
                 "type":"date"
               },
               {
-                "variable":"penaltyDueDate",
-                "formula":"{{billIssueTime}}+864000000",
-                "type":"date"
+                "variable": "penaltyDueDate",
+                "formula": "{{billIssueTime}} + 864000000",
+                "type": "date"
               },
               {
                 "variable": "totalApplicablePenaltyText",
@@ -712,6 +755,10 @@
               {
                 "variable": "netAmountDueWithPenaltyText",
                 "formula": "{{totalApplicablePenalty}} > 0 ? [{'text': 'text' , 'value': {{netAmountDueWithPenalty}} }] : []"
+              },
+              {
+                "variable": "latestDemandPenaltyCreatedtimeText",
+                "formula": "{{latestDemandPenaltyCreatedtime}} > 0 ? [{'text': 'text' , 'value': {{latestDemandPenaltyCreatedtime}} }] : []"
               }
             ]
           },

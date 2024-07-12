@@ -120,7 +120,7 @@ ServiceMaps:
               outJsonPath: $.Data.demands
           - path: http://ws-services.mgramseva:8080/ws-services/wc/_search
             queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
-            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73,"type":"EMPLOYEE","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
             - inJsonPath: $.WaterConnection[0].lastDemandGeneratedDate
               outJsonPath: $.Data.lastDemandGeneratedDate
@@ -238,7 +238,7 @@ ServiceMaps:
               outJsonPath: $.Data.payments
           - path: http://ws-services.mgramseva:8080/ws-services/wc/_search
             queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
-            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73,"type":"EMPLOYEE","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
             - inJsonPath: $.WaterConnection[0].lastDemandGeneratedDate
               outJsonPath: $.Data.lastDemandGeneratedDate
@@ -356,7 +356,7 @@ ServiceMaps:
               outJsonPath: $.Data.payments
           - path: http://ws-services.mgramseva:8080/ws-services/wc/_search
             queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
-            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73,"type":"EMPLOYEE","roles":[{"name":"Employee","code":"FSM_EDITOR_EMP","tenantId":"pb.amritsar"}]}}}
             uriResponseMapping:
             - inJsonPath: $.WaterConnection[0].lastDemandGeneratedDate
               outJsonPath: $.Data.lastDemandGeneratedDate

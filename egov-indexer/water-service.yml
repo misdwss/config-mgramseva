@@ -11,7 +11,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","lastDemandGeneratedDateInDate":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{},"lastDemandGeneratedDate":""}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -25,8 +25,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationStatus
           - inJsonPath: $.status
             outJsonPath: $.Data.status
-          - inJsonPath: $.lastDemandGeneratedDateInDate
-            outJsonPath: $.Data.lastDemandGeneratedDate
           - inJsonPath: $.auditDetails
             outJsonPath: $.Data.auditDetails
           - inJsonPath: $.connectionNo
@@ -120,8 +118,13 @@ ServiceMaps:
             uriResponseMapping:
             - inJsonPath: $.Demands
               outJsonPath: $.Data.demands
-
-     
+         - path: http://http://ws-services.mgramseva:8080/billing-service/demand/_search
+            queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            uriResponseMapping:
+            - inJsonPath: $.WaterConnection.*.lastDemandGeneratedDate
+              outJsonPath: $.Data.lastDemandGeneratedDate
+              
 
   - topic: update-ws-connection
     configKey: INDEX
@@ -132,7 +135,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","lastDemandGeneratedDateInDate":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{},"lastDemandGeneratedDate":""}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -146,8 +149,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationStatus
           - inJsonPath: $.status
             outJsonPath: $.Data.status
-          - inJsonPath: $.lastDemandGeneratedDateInDate
-            outJsonPath: $.Data.lastDemandGeneratedDate
           - inJsonPath: $.auditDetails
             outJsonPath: $.Data.auditDetails
           - inJsonPath: $.connectionNo
@@ -235,6 +236,12 @@ ServiceMaps:
             uriResponseMapping:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
+          - path: http://http://ws-services.mgramseva:8080/billing-service/demand/_search
+            queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            uriResponseMapping:
+            - inJsonPath: $.WaterConnection.*.lastDemandGeneratedDate
+              outJsonPath: $.Data.lastDemandGeneratedDate
 
               
   - topic: update-ws-workflow
@@ -246,7 +253,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","lastDemandGeneratedDateInDate":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{},"lastDemandGeneratedDate":""}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -260,8 +267,6 @@ ServiceMaps:
             outJsonPath: $.Data.applicationStatus
           - inJsonPath: $.status
             outJsonPath: $.Data.status
-          - inJsonPath: $.lastDemandGeneratedDateInDate
-            outJsonPath: $.Data.lastDemandGeneratedDate
           - inJsonPath: $.auditDetails
             outJsonPath: $.Data.auditDetails
           - inJsonPath: $.connectionNo
@@ -349,6 +354,12 @@ ServiceMaps:
             uriResponseMapping:
             - inJsonPath: $.Payments[0]
               outJsonPath: $.Data.payments
+          - path: http://http://ws-services.mgramseva:8080/billing-service/demand/_search
+            queryParam: connectionNumber=$.connectionNo,tenantId=$.tenantId
+            apiRequest: {"RequestInfo": {"apiId": "org.egov.pt","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654", "requesterId": "61", "authToken": "02dbe5be-28df-4d82-954f-3d27c56cca7d","userInfo":{"id":73}}}
+            uriResponseMapping:
+            - inJsonPath: $.WaterConnection.*.lastDemandGeneratedDate
+              outJsonPath: $.Data.lastDemandGeneratedDate
 
   - topic: ws-connection-legacyIndex
     configKey: LEGACYINDEX
@@ -360,7 +371,7 @@ ServiceMaps:
         jsonPath: $.WaterConnection.*
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","lastDemandGeneratedDateInDate":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{}}}
+          indexMapping: {"Data":{"workflow": {"state": {}, "action": "", "assignes": []},"applicationNo":"","applicationStatus":"","status":"","auditDetails":{},"connectionNo":"","oldConnectionNo":"","plumberInfo":[],"roadCuttingInfo":[],"connectionHolders":[],"roadType":"","roadCuttingArea":"","connectionExecutionDate":"","connectionCategory":"","connectionType":"","additionalDetails":{},"id":"","propertyId":"","rainWaterHarvesting":"","waterSource":"","tenantId":"","meterId":"","meterInstallationDate":"","proposedPipeSize":"","proposedTaps":"","pipeSize":"","noOfTaps":"","applicationType":"","dateEffectiveFrom":"", "previousReadingDate":"", "arrears":"","paymentType":"","penalty":"","advance":"", "@timestamp":"timestamp","history":{},"tenantData":{},"payments":{},"lastDemandGeneratedDate":""}}
           fieldMapping:
           - inJsonPath: $.applicationStatus.state
             outJsonPath: $.Data.workflow.state
@@ -374,7 +385,7 @@ ServiceMaps:
             outJsonPath: $.Data.applicationStatus
           - inJsonPath: $.status
             outJsonPath: $.Data.status
-          - inJsonPath: $.lastDemandGeneratedDateInDate
+          - inJsonPath: $.lastDemandGeneratedDate
             outJsonPath: $.Data.lastDemandGeneratedDate
           - inJsonPath: $.auditDetails
             outJsonPath: $.Data.auditDetails

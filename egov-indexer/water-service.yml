@@ -339,7 +339,7 @@ ServiceMaps:
   - topic: ws-connection-legacyIndex
     configKey: LEGACYINDEX
     indexes:
-      - name: water-services-temp
+      - name: water-services-temp-v1
         type: general
         isBulk: true
         id: $.id,$.tenantId

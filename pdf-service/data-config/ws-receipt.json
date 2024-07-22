@@ -61,6 +61,18 @@
                 }
               },
               {
+                "variable": "current_penalty",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CURRENT_PENALTY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },
+              {
                 "variable": "consumer_address",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_CONSUMER_ADDRESS"
@@ -780,7 +792,23 @@
                     "value": "$.LastMonthSummary.previousMonthYear"
                   }
                 ]
+              },
+              {
+                "path": "http://billing-service.mgramseva:8080/billing-service/demand/_getAggregateDemandDetails",
+                "queryParam": "tenantId=$.tenantId,consumerCode=$.paymentDetails[0].bill.consumerCode,businessService=$.paymentDetails[0].bill.businessService",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "current_charges_v1",
+                    "value": "$.currentmonthBill"
+                  },
+                  {
+                    "variable": "current_penalty_v1",
+                    "value": "$.currentMonthPenalty"
+                  }
+                ]
               }
+
             ]
           }
         ]

@@ -596,7 +596,24 @@
                 },
                 "type":"function",
                 "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;" 
-              },{
+              },
+              {
+                "variable": "current_charges_10101",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.billDetails"
+                },
+                "type": "function",
+                "format": "var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); var billAccountDetails = x[0].billAccountDetails; for (var i = 0; i < billAccountDetails.length; i++) { if (billAccountDetails[i].taxHeadCode === '10101') { return billAccountDetails[i].amount; } } return 0;"
+              },
+              {
+                "variable": "current_charges_WS_TIME_PENALTY",
+                "value": {
+                  "path": "$.paymentDetails[0].bill.billDetails"
+                },
+                "type": "function",
+                "format": "var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); var billAccountDetails = x[0].billAccountDetails; for (var i = 0; i < billAccountDetails.length; i++) { if (billAccountDetails[i].taxHeadCode === 'WS_TIME_PENALTY') { return billAccountDetails[i].amount; } } return 0;"
+              },
+              {
                 "variable": "arrears",
                 "value": {
                      "path":"$.paymentDetails[0].bill.billDetails"                              

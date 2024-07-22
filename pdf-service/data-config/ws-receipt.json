@@ -806,6 +806,8 @@
                     "variable": "current_penalty_v1",
                     "value": "$.currentMonthPenalty"
                   }
+                ]
+              }
             ]
           }
         ]
@@ -813,3 +815,4 @@
     ]
   }
 }
+

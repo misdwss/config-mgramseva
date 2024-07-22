@@ -390,7 +390,29 @@
                                 "style": "receipt-table"
                               },
                               {
-                                "text": "₹  {{current_charges}}",
+                                "text": "₹  {{current_charges_10101}}",
+                                "border": [
+                                  false,
+                                  false,
+                                  false,
+                                  false
+                                ],
+                                "style": "receipt-table-value"
+                              }
+                            ],
+                            [
+                              {
+                                "text": "{{current_penalty}} {{fromPeriod}}-{{toPeriod}}",
+                                "border": [
+                                  false,
+                                  false,
+                                  false,
+                                  false
+                                ],
+                                "style": "receipt-table"
+                              },
+                              {
+                                "text": "₹  {{current_charges_WS_TIME_PENALTY}}",
                                 "border": [
                                   false,
                                   false,

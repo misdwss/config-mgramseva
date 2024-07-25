@@ -194,6 +194,18 @@
                 }
               },
               {
+                "variable": "water_charges_roundoff",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES_ROUNDOFF"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },              
+              {
                 "variable": "water_arrears",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_ARREARS"
@@ -747,7 +759,11 @@
               },
               {
                 "variable":"ws_charge_amt",
-                "formula":"{{CurrentMonthWaterCharge}} + {{currentMonthRoundOff}} -{{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} -{{advanceAdjustedAmount}}"
+              },
+              {
+                "variable":"ws_charge_amt_roundoff",
+                "formula":"{{currentMonthRoundOff}}"
               },
               {
                 "variable":"totalArrear",

@@ -683,6 +683,12 @@
                 }
               },
               {
+                "variable": "currentMonthRoundOff",
+                "value": {
+                  "path":"$.AggregatedDemands.currentmonthRoundOff"
+                }
+              },
+              {
                 "variable": "totalApplicablePenalty",
                 "value": {
                   "path":"$.AggregatedDemands.totalApplicablePenalty"
@@ -741,7 +747,7 @@
               },
               {
                 "variable":"ws_charge_amt",
-                "formula":"{{CurrentMonthWaterCharge}}-{{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} + {{currentMonthRoundOff}} -{{advanceAdjustedAmount}}"
               },
               {
                 "variable":"totalArrear",
@@ -749,7 +755,7 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{CurrentMonthWaterCharge}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} + {{currentMonthRoundOff}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDue",

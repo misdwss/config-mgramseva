@@ -766,7 +766,7 @@
                 "formula":"{{currentMonthRoundOff}}> 0 ? [{'text': 'text' , 'value': {{currentMonthRoundOff}} }] : []"
               },
               {
-                "variable": "currentMonthRoundOffText",
+                "variable": "water_charges_roundoff",
                 "formula": "{{currentMonthRoundOff}} > 0 ? [{'text': 'text' , 'value': {{currentMonthRoundOff}} }] : []"
               },
               {

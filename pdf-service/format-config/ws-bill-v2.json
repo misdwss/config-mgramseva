@@ -458,7 +458,26 @@
                             }
                           ],
                           [
-                            "{{#ws_charge_amt_roundoff}}[{\"text\":\"{{water_charges_roundoff}} {{fromPeriod}}-{{toPeriod}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{value}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/ws_charge_amt_roundoff}}"
+                            {
+                              "text": "{{water_charges_roundoff}} {{fromPeriod}}-{{toPeriod}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "{{ws_charge_amt_roundoff}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
                           ],                          
                           [
                             { "text": "{{current_penalty}} {{fromPeriod}}-{{toPeriod}}",

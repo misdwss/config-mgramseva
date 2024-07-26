@@ -763,7 +763,11 @@
               },
               {
                 "variable":"ws_charge_amt_roundoff",
-                "formula":"{{currentMonthRoundOff}}"
+                "formula":"{{currentMonthRoundOff}}> 0 ? [{'text': 'text' , 'value': {{currentMonthRoundOff}} }] : []"
+              },
+              {
+                "variable": "currentMonthRoundOffText",
+                "formula": "{{currentMonthRoundOff}} > 0 ? [{'text': 'text' , 'value': {{currentMonthRoundOff}} }] : []"
               },
               {
                 "variable":"totalArrear",

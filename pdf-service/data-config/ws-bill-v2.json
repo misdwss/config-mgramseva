@@ -762,10 +762,6 @@
                 "formula":"{{CurrentMonthWaterCharge}} -{{advanceAdjustedAmount}}"
               },
               {
-                "variable":"ws_charge_amt_roundoff",
-                "formula":"{{currentMonthRoundOff}}> 0 ? [{'text': 'text' , 'value': {{currentMonthRoundOff}} }] : []"
-              },
-              {
                 "variable":"totalArrear",
                 "formula":"{{totalArrears}}<0?0:{{totalArrears}}"
               },

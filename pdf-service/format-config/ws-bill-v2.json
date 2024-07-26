@@ -469,7 +469,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "{{ws_charge_amt_roundoff}}",
+                              "text": "₹  {{currentMonthRoundOff}}",
                               "border": [
                                 false,
                                 false,

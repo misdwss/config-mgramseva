@@ -458,6 +458,9 @@
                             }
                           ],
                           [
+                            "{{#water_charges_roundoff}}[{\"text\":\"{{water_charges_roundoff}} {{fromPeriod}}-{{toPeriod}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table\"},{\"text\":\"{{ws_charge_amt_roundoff}}\",\"border\":[false,false,false,false],\"style\":\"receipt-table-value\"}]{{/water_charges_roundoff}}"
+                          ],
+                          [
                             { "text": "{{current_penalty}} {{fromPeriod}}-{{toPeriod}}",
                               "border": [
                                 false,

@@ -742,7 +742,7 @@
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}"
+                "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}+{{advanceAdjustedAmountNew}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",

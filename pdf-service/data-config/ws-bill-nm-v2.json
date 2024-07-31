@@ -695,6 +695,12 @@
                   "path":"$.AggregatedDemands.latestDemandPenaltyCreatedtime"
                 },
                "type": "date"
+              },
+              {
+                "variable": "remainingAdvance",
+                "value": {
+                  "path":"$.AggregatedDemands.advanceAvailable"
+                }
               }
             ]
           },
@@ -715,8 +721,12 @@
                 "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
               },
               {
-                "variable":"advanceAdjustedAmount",
+                "variable":"advanceAdjustedAmountBefore",
                 "formula":"-{{advanceAdjustedAmountOne}}"
+              },
+              {
+                "variable":"advanceAdjustedAmount",
+                "formula":"{{advanceAdjustedAmountOne}} != 0 ? -{{advanceAdjustedAmountOne}} : {{remainingAdvance}}"
               },
               {
                 "variable":"ws_charge_amt",

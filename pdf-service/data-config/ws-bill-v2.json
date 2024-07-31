@@ -760,11 +760,11 @@
                 "formula":"['{{doorHouseNo}}', '{{streetName}}', '{{mohalla}}'].filter(x=>x != 'NA').join(', ')"
               },
               {
-                "variable":"advanceAdjustedAmountBefore",
+                "variable":"advanceAdjustedAmount",
                 "formula":"-{{advanceAdjustedAmountOne}}"
               },
               {
-                "variable":"advanceAdjustedAmount",
+                "variable":"advanceAdjustedAmountNew",
                 "formula":"{{advanceAdjustedAmountOne}} != 0 ? -{{advanceAdjustedAmountOne}} : {{remainingAdvance}}"
               },
               {

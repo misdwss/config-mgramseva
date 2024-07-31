@@ -498,7 +498,7 @@
                               "style": "receipt-table"
                             },
                             {
-                              "text": "₹ {{advanceAdjustedAmount}}",
+                              "text": "₹ {{advanceAdjustedAmountNew}}",
                               "border": [
                                 false,
                                 false,

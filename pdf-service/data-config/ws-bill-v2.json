@@ -194,6 +194,18 @@
                 }
               },
               {
+                "variable": "water_charges_roundoff",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES_ROUNDOFF"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },              
+              {
                 "variable": "water_arrears",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_ARREARS"
@@ -683,6 +695,12 @@
                 }
               },
               {
+                "variable": "currentMonthRoundOff",
+                "value": {
+                  "path":"$.AggregatedDemands.currentmonthRoundOff"
+                }
+              },
+              {
                 "variable": "totalApplicablePenalty",
                 "value": {
                   "path":"$.AggregatedDemands.totalApplicablePenalty"
@@ -749,7 +767,7 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{CurrentMonthWaterCharge}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} + {{currentMonthRoundOff}} +  {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDue",

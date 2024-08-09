@@ -458,6 +458,28 @@
                             }
                           ],
                           [
+                            {
+                              "text": "{{water_charges_roundoff}} {{fromPeriod}}-{{toPeriod}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table"
+                            },
+                            {
+                              "text": "₹  {{currentMonthRoundOff}}",
+                              "border": [
+                                false,
+                                false,
+                                false,
+                                false
+                              ],
+                              "style": "receipt-table-value"
+                            }
+                          ],                        
+                          [
                             { "text": "{{current_penalty}} {{fromPeriod}}-{{toPeriod}}",
                               "border": [
                                 false,

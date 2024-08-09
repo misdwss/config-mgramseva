@@ -194,6 +194,18 @@
                 }
               },
               {
+                "variable": "water_charges_roundoff",
+                "value": {
+                  "path": "PDF_STATIC_LABEL_WATER_CHARGES_ROUNDOFF"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "mgramseva-common"
+                }
+              },              
+              {
                 "variable": "water_arrears",
                 "value": {
                   "path": "PDF_STATIC_LABEL_WATER_ARREARS"
@@ -663,13 +675,13 @@
                 "type":"function",
                 "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod});for( var i=1;i<x.length;i++){ x[i].amount=x[i].amount<0?0:x[i].amount; y.push({'text':(((new Date(x[i].fromPeriod+19800000).getDate())<10?('0'+new Date(x[i].fromPeriod+19800000).getDate()):new Date(x[i].fromPeriod+19800000).getDate())+'/'+((new Date(x[i].fromPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].fromPeriod+19800000).getMonth()+1)):(new Date(x[i].fromPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].fromPeriod+19800000).getFullYear())+' - '+(((new Date(x[i].toPeriod+19800000).getDate())<10?('0'+new Date(x[i].toPeriod+19800000).getDate()):new Date(x[i].toPeriod+19800000).getDate())+'/'+((new Date(x[i].toPeriod+19800000).getMonth()+1)<10?('0'+(new Date(x[i].toPeriod+19800000).getMonth()+1)):(new Date(x[i].toPeriod+19800000).getMonth()+1))+'/'+new Date(x[i].toPeriod+19800000).getFullYear()),'value':'₹ '+x[i].amount});} return y;"
               },{
-              "variable": "ws_charge",
-              "value": {
-                "path":"$.Bill[0].billDetails"
+                "variable": "ws_charge",
+                "value": {
+                  "path":"$.Bill[0].billDetails"
+                },
+                "type":"function",
+                "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;"
               },
-              "type":"function",
-              "format":"var y=[],x=arguments[0];x.sort(function(a, b){return b.fromPeriod - a.fromPeriod}); return x[0].amount;"
-            },
               {
                 "variable": "current_month_penalty",
                 "value": {
@@ -680,6 +692,12 @@
                 "variable": "CurrentMonthWaterCharge",
                 "value": {
                   "path":"$.AggregatedDemands.currentmonthBill"
+                }
+              },
+              {
+                "variable": "currentMonthRoundOff",
+                "value": {
+                  "path":"$.AggregatedDemands.currentmonthRoundOff"
                 }
               },
               {
@@ -713,6 +731,12 @@
                   "path":"$.AggregatedDemands.latestDemandPenaltyCreatedtime"
                 },
                 "type": "date"
+              },
+              {
+                "variable": "remainingAdvance",
+                "value": {
+                  "path":"$.AggregatedDemands.advanceAvailable"
+                }
               }
             ]
           },
@@ -740,8 +764,12 @@
                 "formula":"-{{advanceAdjustedAmountOne}}"
               },
               {
+                "variable":"advanceAdjustedAmountNew",
+                "formula":"{{advanceAdjustedAmountOne}} != 0 ? -{{advanceAdjustedAmountOne}} : {{remainingAdvance}}"
+              },
+              {
                 "variable":"ws_charge_amt",
-                "formula":"{{CurrentMonthWaterCharge}}-{{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} -{{advanceAdjustedAmount}}"
               },
               {
                 "variable":"totalArrear",
@@ -749,11 +777,11 @@
               },
               {
                 "variable":"totalBillAmount",
-                "formula":"{{CurrentMonthWaterCharge}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} + {{currentMonthRoundOff}} + {{totalArrear}} + {{current_month_penalty}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"netAmountDue",
-                "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}"
+                "formula":"{{totalBillAmount}}+{{advanceAdjustedAmount}}+{{remainingAdvance}}"
               },
               {
                 "variable":"netAmountDueWithPenalty",

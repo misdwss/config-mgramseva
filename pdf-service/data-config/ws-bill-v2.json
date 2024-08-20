@@ -761,7 +761,7 @@
               },
               {
                 "variable":"advanceAdjustedAmount",
-                "formula":"-{{advanceAdjustedAmountOne}}"
+                "formula":"{{advanceAdjustedAmountOne}}"
               },
               {
                 "variable":"advanceAdjustedAmountNew",
@@ -769,7 +769,7 @@
               },
               {
                 "variable":"ws_charge_amt",
-                "formula":"{{CurrentMonthWaterCharge}} -{{advanceAdjustedAmount}}"
+                "formula":"{{CurrentMonthWaterCharge}} - {{advanceAdjustedAmount}}"
               },
               {
                 "variable":"totalArrear",

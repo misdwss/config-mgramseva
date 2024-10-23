@@ -71,7 +71,7 @@ ServiceMaps:
         jsonPath: $.Demands.*
         timeStampField: $.auditDetails.lastModifiedTime
         customJsonMapping:
-          indexMapping: { "Data": { "taxPeriodFrom": "", "businessService": "", "minimumAmountPayable": "", "taxPeriodTo": "", "fixedBillExpiryDate": null, "additionalDetails": null, "demandDetails": [ ], "consumerType": "", "auditDetails": { }, "tenantId": "", "consumerCode": "", "id": "", "billExpiryTime": "", "isPaymentCompleted": "", "status": "", "@timestamp": "", "tenantData": { } } }
+          indexMapping: { "Data": { "taxPeriodFrom": "", "businessService": "", "minimumAmountPayable": "", "taxPeriodTo": "", "fixedBillExpiryDate": null, "additionalDetails": null, "demandDetails": [ ], "consumerType": "", "auditDetails": { "lastModifiedTime": "", "lastModifiedBy": "" }, "tenantId": "", "consumerCode": "", "id": "", "billExpiryTime": "", "isPaymentCompleted": "", "status": "", "@timestamp": "", "tenantData": { } } }
           fieldMapping:
             - inJsonPath: $.taxPeriodFrom
               outJsonPath: $.Data.taxPeriodFrom
